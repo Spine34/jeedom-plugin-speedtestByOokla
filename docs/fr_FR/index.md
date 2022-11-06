@@ -20,7 +20,7 @@ Après téléchargement du plugin, il faut l'activer et installer ses dépendanc
 > **IMPORTANT**
 >
 > Le plugin accepte automatiquement les conditions générales d'utilisation du paquet :
->
+> ```
 > ==============================================================================
 > You may only use this Speedtest software and information generated
 > from it for personal, non-commercial use, through a command line
@@ -44,6 +44,7 @@ Après téléchargement du plugin, il faut l'activer et installer ses dépendanc
 > http://www.speedtest.net/privacy
 > ==============================================================================
 > License acceptance recorded. Continuing.
+> ```
 
 > **Note**
 >
