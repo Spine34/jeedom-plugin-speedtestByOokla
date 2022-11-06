@@ -1,0 +1,73 @@
+[
+	{
+		"name": "Refresh",
+		"logicalId": "refresh",
+		"type": "action",
+		"subType": "other"
+	},
+	{
+		"name": "Download",
+		"logicalId": "download",
+		"type": "info",
+		"subType": "numeric",
+		"unite": "Mbps",
+		"isHistorized": 1,
+		"configuration": {
+			"calculValueOffset": "#value#\/125000",
+			"historizeRound": "2"
+		}
+	},
+	{
+		"name": "Upload",
+		"logicalId": "upload",
+		"type": "info",
+		"subType": "numeric",
+		"unite": "Mbps",
+		"isHistorized": 1,
+		"configuration": {
+			"calculValueOffset": "#value#\/125000",
+			"historizeRound": "2"
+		}
+	},
+	{
+		"name": "Ping",
+		"logicalId": "ping",
+		"type": "info",
+		"subType": "numeric",
+		"unite": "ms",
+		"isHistorized": 1,
+		"configuration": {
+			"historizeRound": "2"
+		}
+	},
+	{
+		"name": "ISP",
+		"logicalId": "isp",
+		"type": "info",
+		"subType": "string"
+	},
+	{
+		"name": "Internal IP",
+		"logicalId": "internalIp",
+		"type": "info",
+		"subType": "string"
+	},
+	{
+		"name": "External IP",
+		"logicalId": "externalIp",
+		"type": "info",
+		"subType": "string"
+	},
+	{
+		"name": "Server",
+		"logicalId": "server",
+		"type": "info",
+		"subType": "string"
+	},
+	{
+		"name": "Timestamp",
+		"logicalId": "timestamp",
+		"type": "info",
+		"subType": "string"
+	}
+]
