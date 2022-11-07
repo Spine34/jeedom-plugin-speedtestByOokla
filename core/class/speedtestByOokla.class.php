@@ -58,8 +58,7 @@ class speedtestByOokla extends eqLogic
 		return $return;
 	}
 
-	// Fonction exécutée automatiquement toutes les minutes par Jeedom
-	public static function cron()
+	public static function update()
 	{
 		foreach (eqLogic::byType(__CLASS__) as $eqLogic) {
 			$autorefresh = $eqLogic->getConfiguration('autorefresh');
@@ -82,6 +81,11 @@ class speedtestByOokla extends eqLogic
 			}
 		}
 	}
+
+	/*
+  * Fonction exécutée automatiquement toutes les minutes par Jeedom
+  public static function cron() {}
+  */
 
 	/*
   * Fonction exécutée automatiquement toutes les 5 minutes par Jeedom

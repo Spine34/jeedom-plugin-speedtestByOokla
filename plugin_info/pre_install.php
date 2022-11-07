@@ -19,6 +19,6 @@
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 
 // Fonction exécutée automatiquement avant la mise à jour du plugin
-function speedtest_pre_update()
+function speedtestByOokla_pre_update()
 {
 }

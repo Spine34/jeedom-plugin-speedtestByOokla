@@ -18,16 +18,42 @@
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 
 // Fonction exécutée automatiquement après l'installation du plugin
-function speedtest_install()
+function speedtestByOokla_install()
 {
+	$cron = cron::byClassAndFunction('speedtestByOokla', 'update');
+	if (!is_object($cron)) {
+		$cron = new cron();
+		$cron->setClass('speedtestByOokla');
+		$cron->setFunction('update');
+		$cron->setEnable(1);
+		$cron->setDeamon(0);
+		$cron->setSchedule('* * * * *');
+		$cron->setTimeout(2);
+		$cron->save();
+	}
 }
 
 // Fonction exécutée automatiquement après la mise à jour du plugin
-function speedtest_update()
+function speedtestByOokla_update()
 {
+	$cron = cron::byClassAndFunction('speedtestByOokla', 'update');
+	if (!is_object($cron)) {
+		$cron = new cron();
+		$cron->setClass('speedtestByOokla');
+		$cron->setFunction('update');
+		$cron->setEnable(1);
+		$cron->setDeamon(0);
+		$cron->setSchedule('* * * * *');
+		$cron->setTimeout(2);
+		$cron->save();
+	}
 }
 
 // Fonction exécutée automatiquement après la suppression du plugin
-function speedtest_remove()
+function speedtestByOokla_remove()
 {
+	$cron = cron::byClassAndFunction('speedtestByOokla', 'update');
+	if (is_object($cron)) {
+		$cron->remove();
+	}
 }
