@@ -39,14 +39,14 @@ function speedtestByOokla_update()
 	$cron = cron::byClassAndFunction('speedtestByOokla', 'update');
 	if (!is_object($cron)) {
 		$cron = new cron();
-		$cron->setClass('speedtestByOokla');
-		$cron->setFunction('update');
-		$cron->setEnable(1);
-		$cron->setDeamon(0);
-		$cron->setSchedule('* * * * *');
-		$cron->setTimeout(2);
-		$cron->save();
 	}
+	$cron->setClass('speedtestByOokla');
+	$cron->setFunction('update');
+	$cron->setEnable(1);
+	$cron->setDeamon(0);
+	$cron->setSchedule('* * * * *');
+	$cron->setTimeout(2);
+	$cron->save();
 }
 
 // Fonction exécutée automatiquement après la suppression du plugin
