@@ -22,17 +22,23 @@ Après téléchargement du plugin, il faut l'activer et installer ses dépendanc
 > Le plugin accepte automatiquement les conditions générales d'utilisation du paquet :
 > ```
 > ==============================================================================
+> 
 > You may only use this Speedtest software and information generated
 > from it for personal, non-commercial use, through a command line
 > interface on a personal computer. Your use of this software is subject
 > to the End User License Agreement, Terms of Use and Privacy Policy at
 > these URLs:
-> https://www.speedtest.net/about/eula
-> https://www.speedtest.net/about/terms
-> https://www.speedtest.net/about/privacy
+> 
+>         https://www.speedtest.net/about/eula
+>         https://www.speedtest.net/about/terms
+>         https://www.speedtest.net/about/privacy
+> 
 > ==============================================================================
+> 
 > License acceptance recorded. Continuing.
+> 
 > ==============================================================================
+> 
 > Ookla collects certain data through Speedtest that may be considered
 > personally identifiable, such as your IP address, unique device
 > identifiers or location. Ookla believes it has a legitimate interest
@@ -41,8 +47,11 @@ Après téléchargement du plugin, il faut l'activer et installer ses dépendanc
 > faster internet. For further information including how the data may be
 > shared, where the data may be transferred and Ookla's contact details,
 > please see our Privacy Policy at:
-> http://www.speedtest.net/privacy
+> 
+>        http://www.speedtest.net/privacy
+> 
 > ==============================================================================
+> 
 > License acceptance recorded. Continuing.
 > ```
 
