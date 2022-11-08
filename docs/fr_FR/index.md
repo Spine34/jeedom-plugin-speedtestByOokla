@@ -14,7 +14,7 @@ Après téléchargement du plugin, il faut l'activer et installer ses dépendanc
 - **Activer** : permet de rendre votre équipement actif
 - **Visible** : permet de rendre votre équipement visible
 - **Auto-actualisation** : permet de définir la fréquence de rafraîchissement des commandes infos et de la liste des serveurs les plus proches
-- **ID du serveur de test** : permet de choisir un serveur de test scpéficique (à utiliser uniquement si le serveur choisi automatiquement retourne des valeurs erronées)
+- **ID du serveur de test** : permet de choisir un serveur de test spécifique (à utiliser uniquement si le serveur choisi automatiquement retourne des valeurs erronées)
 - **Désactiver les erreurs** : permet de désactiver les erreurs lorsque votre connexion internet est hors service
 - **Description de l’équipement** : permet de donner une description à votre équipement
 - **Liste des serveurs les plus proches** : permet d'afficher la liste des serveurs les plus proches

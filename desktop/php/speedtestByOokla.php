@@ -146,7 +146,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							</div>
 							<div class="form-group">
 								<label class="col-sm-4 control-label">{{ID du serveur de test}}
-									<sup><i class="fas fa-question-circle tooltips" title="{{Permet de choisir un serveur de test scpéficique (à utiliser uniquement si le serveur choisi automatiquement retourne des valeurs erronées)}}"></i></sup>
+									<sup><i class="fas fa-question-circle tooltips" title="{{Permet de choisir un serveur de test spécifique (à utiliser uniquement si le serveur choisi automatiquement retourne des valeurs erronées)}}"></i></sup>
 								</label>
 								<div class="col-sm-6">
 									<input type="number" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="serverId">
