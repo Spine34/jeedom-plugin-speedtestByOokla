@@ -131,7 +131,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							<!-- La fonction cron de la classe du plugin doit contenir le code prévu pour que ce champ soit fonctionnel -->
 							<div class="form-group">
 								<label class="col-sm-4 control-label">{{Auto-actualisation}}
-									<sup><i class="fas fa-question-circle tooltips" title="{{Fréquence de rafraîchissement des commandes infos de l'équipement et de la liste des serveurs les plus proches}}"></i></sup>
+									<sup><i class="fas fa-question-circle tooltips" title="{{Permet de définir la fréquence de rafraîchissement des commandes infos et de la liste des serveurs les plus proches}}"></i></sup>
 								</label>
 								<div class="col-sm-6">
 									<div class="input-group">
@@ -146,7 +146,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							</div>
 							<div class="form-group">
 								<label class="col-sm-4 control-label">{{ID du serveur de test}}
-									<sup><i class="fas fa-question-circle tooltips" title="{{A utiliser uniquement si le serveur choisi automatiquement retourne des valeurs erronées}}"></i></sup>
+									<sup><i class="fas fa-question-circle tooltips" title="{{Permet de choisir un serveur de test scpéficique (à utiliser uniquement si le serveur choisi automatiquement retourne des valeurs erronées)}}"></i></sup>
 								</label>
 								<div class="col-sm-6">
 									<input type="number" class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="serverId">
@@ -154,7 +154,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							</div>
 							<div class="form-group">
 								<label class="col-sm-4 control-label">{{Désactiver les erreurs}}
-									<sup><i class="fas fa-question-circle tooltips" title="{{Cocher cette case pour désactiver les erreurs lorsque votre connexion internet est hors service}}"></i></sup>
+									<sup><i class="fas fa-question-circle tooltips" title="{{Permet de désactiver les erreurs lorsque votre connexion internet est hors service}}"></i></sup>
 								</label>
 								<div class="col-sm-6">
 									<input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="disableError">
@@ -167,7 +167,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						<div class="col-lg-6">
 							<legend><i class="fas fa-info"></i> {{Informations}}</legend>
 							<div class="form-group">
-								<label class="col-sm-4 control-label">{{Description}}</label>
+								<label class="col-sm-4 control-label">{{Description de l’équipement}}</label>
 								<div class="col-sm-6">
 									<textarea class="form-control eqLogicAttr autogrow" data-l1key="comment"></textarea>
 								</div>

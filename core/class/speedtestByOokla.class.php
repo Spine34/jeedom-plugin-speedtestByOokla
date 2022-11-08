@@ -60,20 +60,13 @@ class speedtestByOokla extends eqLogic
 
 	public static function update()
 	{
-		foreach (eqLogic::byType(__CLASS__) as $eqLogic) {
+		foreach (eqLogic::byType(__CLASS__, true) as $eqLogic) {
 			$autorefresh = $eqLogic->getConfiguration('autorefresh');
-			log::add(__CLASS__, 'debug', $eqLogic->getHumanName() . ' : $autorefresh : ' . $autorefresh);
-			if ($eqLogic->getIsEnable() == 1 && $autorefresh != '') {
+			if ($autorefresh != '') {
 				try {
-					$c = new Cron\CronExpression($autorefresh, new Cron\FieldFactory);
-					log::add(__CLASS__, 'debug', $eqLogic->getHumanName() . ' : $c : ' . $c);
-					log::add(__CLASS__, 'debug', $eqLogic->getHumanName() . ' : $c->isDue() : ' . $c->isDue());
+					$c = new Cron\CronExpression(checkAndFixCron($autorefresh), new Cron\FieldFactory);
 					if ($c->isDue()) {
-						try {
-							$eqLogic->refreshData();
-						} catch (Exception $exc) {
-							log::add(__CLASS__, 'error', $eqLogic->getHumanName() . ' : Error : ' . $exc->getMessage());
-						}
+						$eqLogic->refreshData();
 					}
 				} catch (Exception $exc) {
 					log::add(__CLASS__, 'error', $eqLogic->getHumanName() . ' : Invalid cron expression : ' . $autorefresh);

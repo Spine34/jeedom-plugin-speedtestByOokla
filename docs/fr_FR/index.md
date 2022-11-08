@@ -8,18 +8,20 @@ Après téléchargement du plugin, il faut l'activer et installer ses dépendanc
 
 ## Configuration des équipements
 
-- **Nom de l’équipement** : nom de votre équipement Speedtest by Ookla
-- **Objet parent** : indique l’objet parent auquel appartient l’équipement
-- **Catégorie** : les catégories de l’équipement (il peut appartenir à plusieurs catégories)
+- **Nom de l’équipement** : permet de donner un nom de votre équipement
+- **Objet parent** : permet d'indiquer l’objet parent auquel appartient l’équipement
+- **Catégorie** : permet de choisir les catégories de l’équipement (il peut appartenir à plusieurs catégories)
 - **Activer** : permet de rendre votre équipement actif
-- **Visible** : rend votre équipement visible sur le Dashboard
-- **Auto-actualisation** : cron définissant la fréquence de rafraîchissement des commandes infos de l'équipement et de la liste des serveurs les plus proches
-- **ID du serveur de test** : ID du serveur de test de la bande passante internet (à utiliser uniquement si le serveur choisi automatiquement retourne des valeurs erronées)
-- **Désactiver les erreurs** : cocher cette case pour désactiver les erreurs lorsque votre connexion internet est hors service
+- **Visible** : permet de rendre votre équipement visible
+- **Auto-actualisation** : permet de définir la fréquence de rafraîchissement des commandes infos et de la liste des serveurs les plus proches
+- **ID du serveur de test** : permet de choisir un serveur de test scpéficique (à utiliser uniquement si le serveur choisi automatiquement retourne des valeurs erronées)
+- **Désactiver les erreurs** : permet de désactiver les erreurs lorsque votre connexion internet est hors service
+- **Description de l’équipement** : permet de donner une description à votre équipement
+- **Liste des serveurs les plus proches** : permet d'afficher la liste des serveurs les plus proches
 
-> **IMPORTANT**
+> **Important**
 >
-> Le plugin accepte automatiquement les conditions générales d'utilisation du paquet :
+> Le plugin accepte automatiquement les conditions générales d'utilisation du paquet `speedtest` :
 > ```
 > ==============================================================================
 > 
