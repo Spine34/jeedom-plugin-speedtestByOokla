@@ -160,6 +160,14 @@ $eqLogics = eqLogic::byType($plugin->getId());
 									<input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="disableError">
 								</div>
 							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label">{{Utliser le template}}
+									<sup><i class="fas fa-question-circle tooltips" title="{{XXXXXXXXXXXXXXXXXXXXXXX}}"></i></sup>
+								</label>
+								<div class="col-sm-6">
+									<input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="widgetTemplate">
+								</div>
+							</div>
 						</div>
 
 						<!-- Partie droite de l'onglet "Équipement" -->

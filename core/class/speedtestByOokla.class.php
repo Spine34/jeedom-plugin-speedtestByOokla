@@ -197,10 +197,20 @@ class speedtestByOokla extends eqLogic
   }
   */
 
-	/*
-  * Permet de modifier l'affichage du widget (également utilisable par les commandes)
-  public function toHtml($_version = 'dashboard') {}
-  */
+	// Permet de modifier l'affichage du widget (également utilisable par les commandes)
+	public function toHtml($_version = 'dashboard')
+	{
+		if ($this->getConfiguration('widgetTemplate') != 1) {
+			return parent::toHtml($_version);
+		}
+		$replace = $this->preToHtml($_version);
+		if (!is_array($replace)) {
+			return $replace;
+		}
+		$version = jeedom::versionAlias($_version);
+
+		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'speedtestByOokla.template', __CLASS__)));
+	}
 
 	/*
   * Permet de déclencher une action avant modification d'une variable de configuration du plugin
@@ -264,6 +274,7 @@ class speedtestByOokla extends eqLogic
 				}
 				$this->setConfiguration('serverList', $serverList);
 				$this->save();
+				$this->refreshWidget();
 			}
 		}
 	}
