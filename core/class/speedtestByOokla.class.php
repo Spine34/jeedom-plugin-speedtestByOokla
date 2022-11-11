@@ -24,7 +24,27 @@ class speedtestByOokla extends eqLogic
 
 	// Permet de définir les possibilités de personnalisation du widget (en cas d'utilisation de la fonction 'toHtml' par exemple)
 	// Tableau multidimensionnel - exemple: array('custom' => true, 'custom::layout' => false)
-	public static $_widgetPossibility = array('custom' => true);
+
+	// public static $_widgetPossibility = array('custom' => true);
+	public static $_widgetPossibility = array(
+		'custom' => true,
+		'parameters' => array(
+			'BGSpeedtestByOokla' => array(
+				'name' => 'Template : background-color',
+				'type' => 'color',
+				'default' => '',
+				'allow_transparent' => true,
+				'allow_displayType' => true
+			),
+			'BGTitle' => array(
+				'name' => 'Template : titlebar-color',
+				'type' => 'color',
+				'default' => '',
+				'allow_transparent' => true,
+				'allow_displayType' => true
+			)
+		)
+	);
 
 
 	/*
@@ -117,6 +137,14 @@ class speedtestByOokla extends eqLogic
 	{
 		$this->setIsEnable(1);
 		$this->setIsVisible(1);
+		$this->setDisplay('advanceWidgetParameterBGSpeedtestByOokladashboard-default', 0);
+		$this->setDisplay('advanceWidgetParameterBGSpeedtestByOokladashboard', '#141526');
+		$this->setDisplay('advanceWidgetParameterBGSpeedtestByOoklamobile-default', 0);
+		$this->setDisplay('advanceWidgetParameterBGSpeedtestByOoklamobile', '#141526');
+		$this->setDisplay('advanceWidgetParameterBGTitledashboard-default', 0);
+		$this->setDisplay('advanceWidgetParameterBGTitledashboard', '#26273b');
+		$this->setDisplay('advanceWidgetParameterBGTitlemobile-default', 0);
+		$this->setDisplay('advanceWidgetParameterBGTitlemobile', '#26273b');
 	}
 
 	// Fonction exécutée automatiquement après la création de l'équipement
@@ -208,8 +236,16 @@ class speedtestByOokla extends eqLogic
 			return $replace;
 		}
 		$version = jeedom::versionAlias($_version);
-
-		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'speedtestByOokla.template', __CLASS__)));
+		foreach (($this->getCmd('info')) as $cmd) {
+			$logical = $cmd->getLogicalId();
+			$replace['#' . $logical . '_Id#'] = $cmd->getId();
+			$replace['#' . $logical . '_Value#'] = $cmd->execCmd();
+			$replace['#' . $logical . '_ValueDate#'] = $cmd->getValueDate();
+			$replace['#' . $logical . '_CollectDate#'] = $cmd->getCollectDate();
+			$replace['#' . $logical . '_Unite#'] = $cmd->getUnite();
+			$replace['#' . $logical . '_Name#'] = $cmd->getName();
+		}
+		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'speedtestByOokla', __CLASS__)));
 	}
 
 	/*
@@ -231,52 +267,54 @@ class speedtestByOokla extends eqLogic
 
 	public function refreshData()
 	{
-		if ($this->getIsEnable() == 1) {
-			if ($this->getConfiguration('serverId') == '') {
-				$cmd = 'sudo /usr/bin/speedtest --accept-license --accept-gdpr --format=json';
-			} else {
-				$cmd = 'sudo /usr/bin/speedtest --accept-license --accept-gdpr --format=json --server-id=' . $this->getConfiguration('serverId');
-			}
-			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $cmd : ' . $cmd);
-			$speedtest = shell_exec($cmd);
-			if ($speedtest == false || $speedtest == null) {
-				$speedtest = shell_exec($cmd . ' 2>&1');
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
-				$speedtests = explode("\n", rtrim($speedtest));
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtests : ' . print_r($speedtests, true));
-				foreach ($speedtests as $speedtest) {
-					if ($this->getConfiguration('disableError') != 1) {
-						log::add(__CLASS__, 'error', $this->getHumanName() . ' : Error shell_exec() : ' . $speedtest);
-					} else {
-						log::add(__CLASS__, 'warning', $this->getHumanName() . ' : Error shell_exec() : ' . $speedtest);
-					}
-				}
-			} else {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
-				$speedtest = json_decode($speedtest, true);
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . print_r($speedtest, true));
-				$this->checkAndUpdateCmd('download', $speedtest['download']['bandwidth']);
-				$this->checkAndUpdateCmd('upload', $speedtest['upload']['bandwidth']);
-				$this->checkAndUpdateCmd('ping', $speedtest['ping']['latency']);
-				$this->checkAndUpdateCmd('isp', $speedtest['isp']);
-				$this->checkAndUpdateCmd('internalIp', $speedtest['interface']['internalIp']);
-				$this->checkAndUpdateCmd('externalIp', $speedtest['interface']['externalIp']);
-				$this->checkAndUpdateCmd('server', $speedtest['server']['name'] . ' - ' . $speedtest['server']['location'] . ' (id: ' . $speedtest['server']['id'] . ')');
-				$this->checkAndUpdateCmd('timestamp', date('Y-m-d H:i:s', strtotime($speedtest['timestamp'])));
-				log::add(__CLASS__, 'info', $this->getHumanName() . ' : Updated commands');
-				$serverList = shell_exec('sudo /usr/bin/speedtest --servers');
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverList : ' . $serverList);
-				$serverList = str_replace('Closest servers:' . "\n" . "\n", '', $serverList);
-				$serverLists = explode("\n", rtrim($serverList));
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverLists : ' . print_r($serverLists, true));
-				foreach ($serverLists as $server) {
-					log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $server : ' . $server);
-				}
-				$this->setConfiguration('serverList', $serverList);
-				$this->save();
-				$this->refreshWidget();
-			}
-		}
+		// if ($this->getIsEnable() == 1) {
+		// 	if ($this->getConfiguration('serverId') == '') {
+		// 		$cmd = 'sudo /usr/bin/speedtest --accept-license --accept-gdpr --format=json';
+		// 	} else {
+		// 		$cmd = 'sudo /usr/bin/speedtest --accept-license --accept-gdpr --format=json --server-id=' . $this->getConfiguration('serverId');
+		// 	}
+		// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $cmd : ' . $cmd);
+		// 	$speedtest = shell_exec($cmd);
+		// 	if ($speedtest == false || $speedtest == null) {
+		// 		$speedtest = shell_exec($cmd . ' 2>&1');
+		// 		log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
+		// 		$speedtests = explode("\n", rtrim($speedtest));
+		// 		log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtests : ' . print_r($speedtests, true));
+		// 		foreach ($speedtests as $speedtest) {
+		// 			if ($this->getConfiguration('disableError') != 1) {
+		// 				log::add(__CLASS__, 'error', $this->getHumanName() . ' : Error shell_exec() : ' . $speedtest);
+		// 			} else {
+		// 				log::add(__CLASS__, 'warning', $this->getHumanName() . ' : Error shell_exec() : ' . $speedtest);
+		// 			}
+		// 		}
+		// 	} else {
+		// 		log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
+		// 		$speedtest = json_decode($speedtest, true);
+		// 		log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . print_r($speedtest, true));
+		// 		$this->checkAndUpdateCmd('download', $speedtest['download']['bandwidth']);
+		// 		$this->checkAndUpdateCmd('upload', $speedtest['upload']['bandwidth']);
+		// 		$this->checkAndUpdateCmd('ping', $speedtest['ping']['latency']);
+		// 		$this->checkAndUpdateCmd('isp', $speedtest['isp']);
+		// 		$this->checkAndUpdateCmd('internalIp', $speedtest['interface']['internalIp']);
+		// 		$this->checkAndUpdateCmd('externalIp', $speedtest['interface']['externalIp']);
+		// 		$this->checkAndUpdateCmd('server', $speedtest['server']['name'] . ' - ' . $speedtest['server']['location'] . ' (id: ' . $speedtest['server']['id'] . ')');
+		// 		$this->checkAndUpdateCmd('timestamp', date('Y-m-d H:i:s', strtotime($speedtest['timestamp'])));
+		// 		log::add(__CLASS__, 'info', $this->getHumanName() . ' : Updated commands');
+		// 		$serverList = shell_exec('sudo /usr/bin/speedtest --servers');
+		// 		log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverList : ' . $serverList);
+		// 		$serverList = str_replace('Closest servers:' . "\n" . "\n", '', $serverList);
+		// 		$serverLists = explode("\n", rtrim($serverList));
+		// 		log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverLists : ' . print_r($serverLists, true));
+		// 		foreach ($serverLists as $server) {
+		// 			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $server : ' . $server);
+		// 		}
+		// 		$this->setConfiguration('serverList', $serverList);
+		// 		$this->save();
+		// 	}
+		// }
+		$this->checkAndUpdateCmd('download', rand(0, 1000000));
+		$this->checkAndUpdateCmd('upload', rand(0, 1000000));
+		$this->checkAndUpdateCmd('ping', rand(0, 1000000));
 	}
 
 	/*     * **********************Getteur Setteur*************************** */
