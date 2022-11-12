@@ -4,6 +4,11 @@
 >
 > S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte.
 
+## 12/11/2022
+
+- Ajout d'un template dédié au plugin version Dashboard
+- Ajout de paramètres au template dans la Configuration avancée de l'équipement => onglet Affichage => section Widget
+
 ## 07/11/2022
 
 - Ajout d'un cron dédié au plugin dans le moteur de tâches

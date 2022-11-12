@@ -16,6 +16,7 @@ Après téléchargement du plugin, il faut l'activer et installer ses dépendanc
 - **Auto-actualisation** : permet de définir la fréquence de rafraîchissement des commandes infos et de la liste des serveurs les plus proches
 - **ID du serveur de test** : permet de choisir un serveur de test spécifique (à utiliser uniquement si le serveur choisi automatiquement retourne des valeurs erronées)
 - **Désactiver les erreurs** : permet de désactiver les erreurs lorsque votre connexion internet est hors service
+- **Utliser le template** : permet d'utiliser le template dédié au plugin à la place des widgets core (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
 - **Description de l’équipement** : permet de donner une description à votre équipement
 - **Liste des serveurs les plus proches** : permet d'afficher la liste des serveurs les plus proches
 
