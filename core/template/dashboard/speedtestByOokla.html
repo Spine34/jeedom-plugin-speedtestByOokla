@@ -152,6 +152,7 @@
 		var eqLogic = $('.eqLogic[data-eqLogic_uid=#uid#]')
 		if ('#colorEqLogic#' != '') {
 			eqLogic.find('.speedtestByOokla .cmd:not(.label) .state, .speedtestByOokla .cmd, .speedtestByOokla div.cmd-widget .title').attr('style', 'color: #colorEqLogic# !important;')
+			eqLogic.find('.speedtestByOokla svg.svgPositionIsp path, .speedtestByOokla svg.svgPositionServer path').attr('fill', '#colorEqLogic#')
 		}
 	</script>
 </div>
