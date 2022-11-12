@@ -48,7 +48,7 @@ function speedtestByOokla_update()
 	$cron->setTimeout(2);
 	$cron->save();
 	foreach (eqLogic::byType('speedtestByOokla') as $eqLogic) {
-		if ($eqLogic->getConfiguration('widgetTemplate') == 1) {
+		if ($eqLogic->getConfiguration('widgetTemplate') != 1) {
 			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicdashboard-default', 0);
 			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicdashboard', '#141526');
 			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicmobile-default', 0);
