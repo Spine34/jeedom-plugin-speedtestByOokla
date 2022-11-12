@@ -47,6 +47,18 @@ function speedtestByOokla_update()
 	$cron->setSchedule('* * * * *');
 	$cron->setTimeout(2);
 	$cron->save();
+	foreach (eqLogic::byType('speedtestByOokla') as $eqLogic) {
+		if ($eqLogic->getConfiguration('widgetTemplate') == 1) {
+			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicdashboard-default', 0);
+			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicdashboard', '#141526');
+			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicmobile-default', 0);
+			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicmobile', '#141526');
+			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamedashboard-default', 0);
+			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamedashboard', '#26273b');
+			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamemobile-default', 0);
+			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamemobile', '#26273b');
+		}
+	}
 }
 
 // Fonction exécutée automatiquement après la suppression du plugin

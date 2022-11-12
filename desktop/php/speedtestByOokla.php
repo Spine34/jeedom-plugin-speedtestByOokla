@@ -162,7 +162,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							</div>
 							<div class="form-group">
 								<label class="col-sm-4 control-label">{{Utliser le template}}
-									<sup><i class="fas fa-question-circle tooltips" title="{{permet d'utiliser le template dédié au plugin à la place des widgets core (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)}}"></i></sup>
+									<sup><i class="fas fa-question-circle tooltips" title="{{Permet d'utiliser le template dédié au plugin à la place des widgets core (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)}}"></i></sup>
 								</label>
 								<div class="col-sm-6">
 									<input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="widgetTemplate">
