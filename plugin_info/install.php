@@ -57,6 +57,7 @@ function speedtestByOokla_update()
 			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamedashboard', '#26273b');
 			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamemobile-default', 0);
 			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamemobile', '#26273b');
+			$eqLogic->save(true);
 		}
 	}
 }
