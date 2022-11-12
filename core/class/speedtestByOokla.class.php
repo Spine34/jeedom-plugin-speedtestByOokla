@@ -29,15 +29,22 @@ class speedtestByOokla extends eqLogic
 	public static $_widgetPossibility = array(
 		'custom' => true,
 		'parameters' => array(
-			'BGSpeedtestByOokla' => array(
-				'name' => 'Template : background-color',
+			'bgEqLogic' => array(
+				'name' => 'Couleur de fond',
 				'type' => 'color',
 				'default' => '',
 				'allow_transparent' => true,
 				'allow_displayType' => true
 			),
-			'BGTitle' => array(
-				'name' => 'Template : titlebar-color',
+			'bgWidgetName' => array(
+				'name' => 'Couleur de fond du bandeau',
+				'type' => 'color',
+				'default' => '',
+				'allow_transparent' => true,
+				'allow_displayType' => true
+			),
+			'colorEqLogic' => array(
+				'name' => 'Couleur de la police',
 				'type' => 'color',
 				'default' => '',
 				'allow_transparent' => true,
@@ -137,14 +144,14 @@ class speedtestByOokla extends eqLogic
 	{
 		$this->setIsEnable(1);
 		$this->setIsVisible(1);
-		$this->setDisplay('advanceWidgetParameterBGSpeedtestByOokladashboard-default', 0);
-		$this->setDisplay('advanceWidgetParameterBGSpeedtestByOokladashboard', '#141526');
-		$this->setDisplay('advanceWidgetParameterBGSpeedtestByOoklamobile-default', 0);
-		$this->setDisplay('advanceWidgetParameterBGSpeedtestByOoklamobile', '#141526');
-		$this->setDisplay('advanceWidgetParameterBGTitledashboard-default', 0);
-		$this->setDisplay('advanceWidgetParameterBGTitledashboard', '#26273b');
-		$this->setDisplay('advanceWidgetParameterBGTitlemobile-default', 0);
-		$this->setDisplay('advanceWidgetParameterBGTitlemobile', '#26273b');
+		$this->setDisplay('advanceWidgetParameterbgEqLogicdashboard-default', 0);
+		$this->setDisplay('advanceWidgetParameterbgEqLogicdashboard', '#141526');
+		$this->setDisplay('advanceWidgetParameterbgEqLogicmobile-default', 0);
+		$this->setDisplay('advanceWidgetParameterbgEqLogicmobile', '#141526');
+		$this->setDisplay('advanceWidgetParameterbgWidgetNamedashboard-default', 0);
+		$this->setDisplay('advanceWidgetParameterbgWidgetNamedashboard', '#26273b');
+		$this->setDisplay('advanceWidgetParameterbgWidgetNamemobile-default', 0);
+		$this->setDisplay('advanceWidgetParameterbgWidgetNamemobile', '#26273b');
 	}
 
 	// Fonction exécutée automatiquement après la création de l'équipement
