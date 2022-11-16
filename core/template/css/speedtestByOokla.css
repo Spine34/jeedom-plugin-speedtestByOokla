@@ -2,8 +2,12 @@
 	line-height: 24px !important;
 }
 
+.speedtestByOokla .svg {
+	display: flex;
+}
+
 .speedtestByOokla .bottomBlock {
-	margin-top: 10px;
+	margin-top: 15px;
 }
 
 .speedtestByOokla .isp {
@@ -15,8 +19,8 @@
 .speedtestByOokla .circleIsp {
 	height: 40px;
 	width: 40px;
-	border-style: solid;
 	border-width: 2px;
+	border-style: solid;
 	border-radius: 100%;
 	margin: 0px 15px 0px 5px;
 	display: inline-block;
@@ -25,6 +29,13 @@
 .speedtestByOokla .svgPositionIsp {
 	position: relative;
 	top: 5px;
+}
+
+.speedtestByOokla .circleRefresh {
+	height: 70px;
+	width: 70px;
+	border-radius: 100%;
+	background-color: rgba(var(--eq-bg-color), var(--opacity));
 }
 
 .speedtestByOokla .circleRefresh:hover {
@@ -42,13 +53,6 @@
 	}
 }
 
-.speedtestByOokla .circleRefresh {
-	height: 70px;
-	width: 70px;
-	border-radius: 100%;
-	background: rgba(var(--eq-bg-color), var(--opacity));
-}
-
 .speedtestByOokla .GO {
 	line-height: 70px;
 	font-size: 24px;
@@ -63,14 +67,14 @@
 	right: -5px;
 	left: -5px;
 	z-index: -1;
-	background: linear-gradient(to bottom, #2de5d1, #1fa4e9);
+	background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) !important;
 }
 
 .speedtestByOokla .circleServer {
 	height: 40px;
 	width: 40px;
-	border-style: solid;
 	border-width: 2px;
+	border-style: solid;
 	border-radius: 100%;
 	margin: 0px 5px 0px 15px;
 	display: inline-block;
