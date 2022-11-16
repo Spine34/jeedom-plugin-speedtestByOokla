@@ -1,11 +1,5 @@
-.speedtestByOokla .svgPosition {
-	position: relative;
-	top: 8px;
-	margin-right: 5px;
-}
-
 .speedtestByOokla .lineHeight {
-	line-height: 40px !important;
+	line-height: 24px !important;
 }
 
 .speedtestByOokla .bottomBlock {

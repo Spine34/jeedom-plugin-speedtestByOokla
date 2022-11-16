@@ -49,6 +49,13 @@ class speedtestByOokla extends eqLogic
 				'default' => '',
 				'allow_transparent' => true,
 				'allow_displayType' => true
+			),
+			'timeWidget' => array(
+				'name' => 'Time widget',
+				'type' => '',
+				'default' => '',
+				'allow_transparent' => false,
+				'allow_displayType' => true
 			)
 		)
 	);
@@ -152,6 +159,10 @@ class speedtestByOokla extends eqLogic
 		$this->setDisplay('advanceWidgetParameterbgWidgetNamedashboard', '#26273b');
 		$this->setDisplay('advanceWidgetParameterbgWidgetNamemobile-default', 0);
 		$this->setDisplay('advanceWidgetParameterbgWidgetNamemobile', '#26273b');
+		$this->setDisplay('advanceWidgetParametercolorEqLogicdashboard-default', 1);
+		$this->setDisplay('advanceWidgetParametercolorEqLogicmobile-default', 1);
+		$this->setDisplay('advanceWidgetParametertimeWidgetdashboard-default', 1);
+		$this->setDisplay('advanceWidgetParametertimeWidgetmobile-default', 1);
 	}
 
 	// Fonction exécutée automatiquement après la création de l'équipement
@@ -259,6 +270,7 @@ class speedtestByOokla extends eqLogic
 			$replace['#' . $logical . '_Unite#'] = $cmd->getUnite();
 			$replace['#' . $logical . '_Name#'] = $cmd->getName();
 		}
+		$replace['#timeWidget#'] = $this->getDisplay('advanceWidgetParametertimeWidgetdashboard-default');
 		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'speedtestByOokla', __CLASS__)));
 	}
 
