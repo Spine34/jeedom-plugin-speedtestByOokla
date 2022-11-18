@@ -9,6 +9,10 @@
 - Ajout d'un template dédié au plugin version Dashboard
 - Ajout de paramètres au template dans la Configuration avancée de l'équipement => onglet Affichage => section Widget
 
+## 09/11/2022
+
+- Première version stable
+
 ## 07/11/2022
 
 - Ajout d'un cron dédié au plugin dans le moteur de tâches
