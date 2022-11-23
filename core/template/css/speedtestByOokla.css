@@ -7,7 +7,7 @@
 }
 
 .speedtestByOokla .bottomBlock {
-	margin-top: 15px;
+	margin-top: 10px;
 }
 
 .speedtestByOokla .isp {
@@ -22,24 +22,35 @@
 	border-width: 2px;
 	border-style: solid;
 	border-radius: 100%;
-	margin: 0px 15px 0px 5px;
-	display: inline-block;
+	margin: 0 10px 0 5px;
+	display: inline-flex;
 }
 
 .speedtestByOokla .svgPositionIsp {
-	position: relative;
-	top: 5px;
+	margin: auto;
 }
 
 .speedtestByOokla .circleRefresh {
-	height: 70px;
 	width: 70px;
-	border-radius: 100%;
-	background-color: rgba(var(--eq-bg-color), var(--opacity));
+	height: 70px;
+	position: relative;
 }
 
-.speedtestByOokla .circleRefresh:hover {
-	background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) !important;
+.speedtestByOokla .circleRefresh::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 100%;
+	padding: 5px;
+	background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+	-webkit-mask-composite: xor;
+}
+
+.speedtestByOokla .circleRefresh:hover::before {
 	animation: rotate 1s linear infinite;
 }
 
@@ -59,33 +70,20 @@
 	font-weight: bold;
 }
 
-.speedtestByOokla .circleRefresh2 {
-	border-radius: inherit;
-	position: absolute;
-	top: -5px;
-	bottom: -5px;
-	right: -5px;
-	left: -5px;
-	z-index: -1;
-	background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) !important;
-}
-
 .speedtestByOokla .circleServer {
 	height: 40px;
 	width: 40px;
 	border-width: 2px;
 	border-style: solid;
 	border-radius: 100%;
-	margin: 0px 5px 0px 15px;
-	display: inline-block;
+	margin: 0 5px 0 10px;
+	display: inline-flex;
 }
 
 .speedtestByOokla .svgPositionServer {
-	position: relative;
-	top: 6px;
+	margin: auto;
 }
 
 .speedtestByOokla .server {
 	display: inline-block;
-	vertical-align: middle;
 }
