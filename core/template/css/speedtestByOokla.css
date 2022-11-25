@@ -53,6 +53,10 @@
 	animation: rotate 1s linear infinite;
 }
 
+.speedtestByOokla .circleRefresh.animation:before {
+	animation: rotate 1s linear infinite;
+}
+
 @keyframes rotate {
 	0% {
 		filter: hue-rotate(0deg);
@@ -63,7 +67,7 @@
 	}
 }
 
-.speedtestByOokla .GO {
+.speedtestByOokla .go {
 	line-height: 70px;
 	font-size: 24px;
 	font-weight: bold;

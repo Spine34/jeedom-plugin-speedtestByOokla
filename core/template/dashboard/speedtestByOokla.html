@@ -96,7 +96,7 @@
 					<div class="content-sm">
 						<a class="refresh">
 							<div class="circleRefresh">
-								<span class="GO" style="color: #colorEqLogic#;">GO</span>
+								<span class="go">GO</span>
 							</div>
 						</a>
 					</div>
@@ -172,6 +172,22 @@
 		} else {
 			$('.eqLogic[data-eqLogic_uid=#uid#] .refresh').remove()
 		}
+		var targetNode = document.querySelector('.speedtestByOokla .cmd.refresh');
+		var observerOptions = {
+			childList: true,
+			attributes: true,
+			subtree: true
+		}
+
+		var observer = new MutationObserver(callback);
+		observer.observe(targetNode, observerOptions);
+		function callback(mutationList, observer) {
+			if (document.querySelector('.speedtestByOokla .cmd.refresh').classList.contains('spinning')) {
+				$('.eqLogic[data-eqLogic_uid=#uid#]').find('.circleRefresh').addClass('animation')
+			} else {
+				$('.eqLogic[data-eqLogic_uid=#uid#]').find('.circleRefresh').removeClass('animation')
+			}
+		}
 		if ('#colorWidgetName#' != '') {
 			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.widget-name a').attr('style', 'color: #colorWidgetName# !important;')
 		}
@@ -179,7 +195,8 @@
 			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.widget-name').attr('style', 'background-color: #bgWidgetName# !important;')
 		}
 		if ('#colorEqLogic#' != '') {
-			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.cmd:not(.label) .state, .cmd, div.cmd-widget .title').attr('style', 'color: #colorEqLogic# !important;').find('svg.svgPositionIsp path, svg.svgPositionServer path').attr('fill', '#colorEqLogic#')
+			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.cmd:not(.label) .state, .cmd, div.cmd-widget .title, .go').attr('style', 'color: #colorEqLogic# !important;')
+			$('.eqLogic[data-eqLogic_uid=#uid#]').find('svg.svgPositionIsp path, svg.svgPositionServer path').attr('fill', '#colorEqLogic#')
 		}
 		if ('#bgEqLogic#' != '') {
 			$('.eqLogic[data-eqLogic_uid=#uid#]').attr('style', $('.eqLogic[data-eqLogic_uid=#uid#]').attr('style') + 'background-color: #bgEqLogic# !important;')
