@@ -49,18 +49,22 @@ function speedtestByOokla_update()
 	$cron->save();
 	foreach (eqLogic::byType('speedtestByOokla') as $eqLogic) {
 		if ($eqLogic->getConfiguration('widgetTemplate') != 1) {
-			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicdashboard-default', 0);
-			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicdashboard', '#141526');
-			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicmobile-default', 0);
-			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicmobile', '#141526');
-			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamedashboard-default', 0);
-			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamedashboard', '#26273b');
-			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamemobile-default', 0);
-			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamemobile', '#26273b');
-			$eqLogic->setDisplay('advanceWidgetParametercolorEqLogicdashboard-default', 1);
-			$eqLogic->setDisplay('advanceWidgetParametercolorEqLogicmobile-default', 1);
-			$eqLogic->setDisplay('advanceWidgetParametertimeWidgetdashboard-default', 1);
-			$eqLogic->setDisplay('advanceWidgetParametertimeWidgetmobile-default', 1);
+			$this->setDisplay('advanceWidgetParametercolorWidgetNamedashboard-default', 1);
+			$this->setDisplay('advanceWidgetParametercolorWidgetNamemobile-default', 1);
+			$this->setDisplay('advanceWidgetParameterbgWidgetNamedashboard-default', 0);
+			$this->setDisplay('advanceWidgetParameterbgWidgetNamedashboard', '#26273b');
+			$this->setDisplay('advanceWidgetParameterbgWidgetNamemobile-default', 0);
+			$this->setDisplay('advanceWidgetParameterbgWidgetNamemobile', '#26273b');
+			$this->setDisplay('advanceWidgetParametercolorEqLogicdashboard-default', 1);
+			$this->setDisplay('advanceWidgetParametercolorEqLogicmobile-default', 1);
+			$this->setDisplay('advanceWidgetParameterbgEqLogicdashboard-default', 0);
+			$this->setDisplay('advanceWidgetParameterbgEqLogicdashboard', '#141526');
+			$this->setDisplay('advanceWidgetParameterbgEqLogicmobile-default', 0);
+			$this->setDisplay('advanceWidgetParameterbgEqLogicmobile', '#141526');
+			$this->setDisplay('advanceWidgetParametercmdNamedashboard-default', 1);
+			$this->setDisplay('advanceWidgetParametercmdNamemobile-default', 1);
+			$this->setDisplay('advanceWidgetParametertimeWidgetdashboard-default', 1);
+			$this->setDisplay('advanceWidgetParametertimeWidgetmobile-default', 1);
 			$eqLogic->save(true);
 		}
 	}

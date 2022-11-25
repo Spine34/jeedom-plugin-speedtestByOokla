@@ -29,8 +29,8 @@ class speedtestByOokla extends eqLogic
 	public static $_widgetPossibility = array(
 		'custom' => true,
 		'parameters' => array(
-			'bgEqLogic' => array(
-				'name' => 'Couleur de fond',
+			'colorWidgetName' => array(
+				'name' => 'Couleur de la police du bandeau',
 				'type' => 'color',
 				'default' => '',
 				'allow_transparent' => true,
@@ -48,6 +48,20 @@ class speedtestByOokla extends eqLogic
 				'type' => 'color',
 				'default' => '',
 				'allow_transparent' => true,
+				'allow_displayType' => true
+			),
+			'bgEqLogic' => array(
+				'name' => 'Couleur de fond',
+				'type' => 'color',
+				'default' => '',
+				'allow_transparent' => true,
+				'allow_displayType' => true
+			),
+			'cmdName' => array(
+				'name' => 'Nom des commandes',
+				'type' => '',
+				'default' => '',
+				'allow_transparent' => false,
 				'allow_displayType' => true
 			),
 			'timeWidget' => array(
@@ -151,16 +165,20 @@ class speedtestByOokla extends eqLogic
 	{
 		$this->setIsEnable(1);
 		$this->setIsVisible(1);
-		$this->setDisplay('advanceWidgetParameterbgEqLogicdashboard-default', 0);
-		$this->setDisplay('advanceWidgetParameterbgEqLogicdashboard', '#141526');
-		$this->setDisplay('advanceWidgetParameterbgEqLogicmobile-default', 0);
-		$this->setDisplay('advanceWidgetParameterbgEqLogicmobile', '#141526');
+		$this->setDisplay('advanceWidgetParametercolorWidgetNamedashboard-default', 1);
+		$this->setDisplay('advanceWidgetParametercolorWidgetNamemobile-default', 1);
 		$this->setDisplay('advanceWidgetParameterbgWidgetNamedashboard-default', 0);
 		$this->setDisplay('advanceWidgetParameterbgWidgetNamedashboard', '#26273b');
 		$this->setDisplay('advanceWidgetParameterbgWidgetNamemobile-default', 0);
 		$this->setDisplay('advanceWidgetParameterbgWidgetNamemobile', '#26273b');
 		$this->setDisplay('advanceWidgetParametercolorEqLogicdashboard-default', 1);
 		$this->setDisplay('advanceWidgetParametercolorEqLogicmobile-default', 1);
+		$this->setDisplay('advanceWidgetParameterbgEqLogicdashboard-default', 0);
+		$this->setDisplay('advanceWidgetParameterbgEqLogicdashboard', '#141526');
+		$this->setDisplay('advanceWidgetParameterbgEqLogicmobile-default', 0);
+		$this->setDisplay('advanceWidgetParameterbgEqLogicmobile', '#141526');
+		$this->setDisplay('advanceWidgetParametercmdNamedashboard-default', 1);
+		$this->setDisplay('advanceWidgetParametercmdNamemobile-default', 1);
 		$this->setDisplay('advanceWidgetParametertimeWidgetdashboard-default', 1);
 		$this->setDisplay('advanceWidgetParametertimeWidgetmobile-default', 1);
 	}
@@ -270,6 +288,7 @@ class speedtestByOokla extends eqLogic
 			$replace['#' . $logical . '_Unite#'] = $cmd->getUnite();
 			$replace['#' . $logical . '_Name#'] = $cmd->getName();
 		}
+		$replace['#cmdName#'] = $this->getDisplay('advanceWidgetParametercmdNamedashboard-default');
 		$replace['#timeWidget#'] = $this->getDisplay('advanceWidgetParametertimeWidgetdashboard-default');
 		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'speedtestByOokla', __CLASS__)));
 	}

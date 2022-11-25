@@ -1,4 +1,4 @@
-<div class="eqLogic eqLogic-widget allowResize allowReorderCmd #custom_layout# #eqLogic_class# #class# #category#"
+<div class="toto eqLogic eqLogic-widget allowResize allowReorderCmd #custom_layout# #eqLogic_class# #class# #category# speedtestByOokla"
 	data-eqType="#eqType#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#"
 	data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#"
 	style="width: #width#; height: #height#; #style#;">
@@ -14,11 +14,11 @@
 		<a href="#eqLink#" class="reportModeHidden">#name_display#<span class="object_name">#object_name#</span></a>
 	</div>
 	<div class="#isVerticalAlign#">
-		<div class="center speedtestByOokla">
+		<div class="center">
 			<div class="cmd cmd-widget history cursor tooltipstered" data-type="info" data-subtype="numeric"
 				data-template="tile" data-cmd_id="#download_Id#">
 				<div class="title">
-					<div class="cmdName">#download_Name#</div>
+					<div class="cmdName downloadName">#download_Name#</div>
 				</div>
 				<div class="content-sm">
 					<span class="pull-right unit lineHeight"></span>
@@ -38,7 +38,7 @@
 			<div class="cmd cmd-widget history cursor tooltipstered" data-type="info" data-subtype="numeric"
 				data-template="tile" data-cmd_id="#upload_Id#">
 				<div class="title">
-					<div class="cmdName">#upload_Name#</div>
+					<div class="cmdName uploadName">#upload_Name#</div>
 				</div>
 				<div class="content-sm">
 					<span class="pull-right unit lineHeight"></span>
@@ -58,7 +58,7 @@
 			<div class="cmd cmd-widget history cursor tooltipstered" data-type="info" data-subtype="numeric"
 				data-template="tile" data-cmd_id="#ping_Id#">
 				<div class="title ">
-					<div class="cmdName">#ping_Name#</div>
+					<div class="cmdName pingName">#ping_Name#</div>
 				</div>
 				<div class="content-sm">
 					<span class="pull-right unit lineHeight"></span>
@@ -79,7 +79,7 @@
 				<div class="cmd cmd-widget history cursor tooltipstered" data-type="info" data-subtype="string"
 					data-cmd_id="#isp_Id#">
 					<div class="title">
-						<div class="cmdName">#isp_Name#</div>
+						<div class="cmdName ispName">#isp_Name#</div>
 					</div>
 					<div class="content-sm">
 						<div class="isp"></div>
@@ -104,7 +104,7 @@
 				<div class="cmd cmd-widget history cursor tooltipstered" data-type="info" data-subtype="string"
 					data-cmd_id="#server_Id#">
 					<div class="title">
-						<div class="cmdName">#server_Name#</div>
+						<div class="cmdName serverName">#server_Name#</div>
 					</div>
 					<div class="content-sm">
 						<div class="circleServer">
@@ -122,13 +122,6 @@
 	</div>
 	#divGraphInfo#
 	<script>
-		if ('#refresh_id#' != '') {
-			$('.eqLogic[data-eqLogic_uid=#uid#] .refresh').on('click', function () {
-				jeedom.cmd.execute({ id: '#refresh_id#' })
-			})
-		} else {
-			$('.eqLogic[data-eqLogic_uid=#uid#] .refresh').remove()
-		}
 		jeedom.cmd.addUpdateFunction('#download_Id#', function (_options) {
 			$('.cmd[data-cmd_id=#download_Id#]').attr('title', 'Date de valeur : ' + _options.valueDate + '<br/>Date de collecte : ' + _options.collectDate)
 			$('.cmd[data-cmd_id=#download_Id#] .state').empty().append(_options.display_value)
@@ -166,22 +159,34 @@
 			$('.cmd[data-cmd_id=#isp_Id#]').attr('title', 'Date de valeur : ' + _options.valueDate + '<br/>Date de collecte : ' + _options.collectDate)
 			$('.cmd[data-cmd_id=#isp_Id#] .isp').empty().append(_options.display_value)
 		});
-		jeedom.cmd.refreshValue([{ cmd_id: '#isp_Id#', display_value: '#isp_Value#', valueDate: '#isp_ValueDate#', collectDate: '#isp_CollectDate#' }])
+		jeedom.cmd.refreshValue([{ cmd_id: '#isp_Id#', display_value: '#isp_Value#<br>#externalIp_Value#', valueDate: '#isp_ValueDate#', collectDate: '#isp_CollectDate#' }])
 		jeedom.cmd.addUpdateFunction('#server_Id#', function (_options) {
 			$('.cmd[data-cmd_id=#server_Id#]').attr('title', 'Date de valeur : ' + _options.valueDate + '<br/>Date de collecte : ' + _options.collectDate)
 			$('.cmd[data-cmd_id=#server_Id#] .server').empty().append(_options.display_value)
 		});
 		jeedom.cmd.refreshValue([{ cmd_id: '#server_Id#', display_value: '#server_Value#', valueDate: '#server_ValueDate#', collectDate: '#server_CollectDate#' }])
-		if ('#bgEqLogic#' != '') {
-			$('.eqLogic[data-eqLogic_uid=#uid#]').attr('style', $('.eqLogic[data-eqLogic_uid=#uid#]').attr('style') + 'background-color: #bgEqLogic# !important;')
+		if ('#refresh_id#' != '') {
+			$('.eqLogic[data-eqLogic_uid=#uid#] .refresh').on('click', function () {
+				jeedom.cmd.execute({ id: '#refresh_id#' })
+			})
+		} else {
+			$('.eqLogic[data-eqLogic_uid=#uid#] .refresh').remove()
+		}
+		if ('#colorWidgetName#' != '') {
+			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.widget-name a').attr('style', 'color: #colorWidgetName# !important;')
 		}
 		if ('#bgWidgetName#' != '') {
 			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.widget-name').attr('style', 'background-color: #bgWidgetName# !important;')
 		}
 		if ('#colorEqLogic#' != '') {
-			console.log('#colorEqLogic#')
-			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.speedtestByOokla .cmd:not(.label) .state, .speedtestByOokla .cmd, .speedtestByOokla div.cmd-widget .title').attr('style', 'color: #colorEqLogic# !important;')
-			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.speedtestByOokla svg.svgPositionIsp path, .speedtestByOokla svg.svgPositionServer path').attr('fill', '#colorEqLogic#')
+			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.cmd:not(.label) .state, .cmd, div.cmd-widget .title').attr('style', 'color: #colorEqLogic# !important;').find('svg.svgPositionIsp path, svg.svgPositionServer path').attr('fill', '#colorEqLogic#')
+		}
+		if ('#bgEqLogic#' != '') {
+			$('.eqLogic[data-eqLogic_uid=#uid#]').attr('style', $('.eqLogic[data-eqLogic_uid=#uid#]').attr('style') + 'background-color: #bgEqLogic# !important;')
+		}
+		if ('#cmdName#' != '1') {
+			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.cmdName.downloadName, .cmdName.uploadName, .cmdName.pingName').parent().remove()
+			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.cmdName.ispName, .cmdName.serverName').attr('style', 'display: none;')
 		}
 	</script>
 </div>
