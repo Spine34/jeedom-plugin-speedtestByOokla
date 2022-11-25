@@ -76,8 +76,7 @@
 				</div>
 			</div>
 			<div class="bottomBlock">
-				<div class="cmd cmd-widget history cursor tooltipstered" data-type="info" data-subtype="string"
-					data-cmd_id="#isp_Id#">
+				<div class="cmd cmd-widget tooltipstered" data-type="info" data-subtype="string" data-cmd_id="#isp_Id#">
 					<div class="title">
 						<div class="cmdName ispName">#isp_Name#</div>
 					</div>
@@ -101,7 +100,7 @@
 						</a>
 					</div>
 				</div>
-				<div class="cmd cmd-widget history cursor tooltipstered" data-type="info" data-subtype="string"
+				<div class="cmd cmd-widget tooltipstered" data-type="info" data-subtype="string"
 					data-cmd_id="#server_Id#">
 					<div class="title">
 						<div class="cmdName serverName">#server_Name#</div>
@@ -178,7 +177,6 @@
 			attributes: true,
 			subtree: true
 		}
-
 		var observer = new MutationObserver(callback);
 		observer.observe(targetNode, observerOptions);
 		function callback(mutationList, observer) {
