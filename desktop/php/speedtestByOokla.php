@@ -145,6 +145,17 @@ $eqLogics = eqLogic::byType($plugin->getId());
 								</div>
 							</div>
 							<div class="form-group">
+								<label class="col-sm-4 control-label">{{Templates}}
+									<sup><i class="fas fa-question-circle tooltips" title="{{Permet d'utiliser les templates dédiés au plugin à la place des widgets core (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget}}"></i></sup>
+								</label>
+								<div class="col-sm-6">
+									<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="widgetTemplate">
+										<option value="coreWidget">Widgets core</option>
+										<option value="templateWithoutGauges">Template sans jauges</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
 								<label class="col-sm-4 control-label">{{ID du serveur de test}}
 									<sup><i class="fas fa-question-circle tooltips" title="{{Permet de choisir un serveur de test spécifique (à utiliser uniquement si le serveur choisi automatiquement retourne des valeurs erronées)}}"></i></sup>
 								</label>
@@ -158,14 +169,6 @@ $eqLogics = eqLogic::byType($plugin->getId());
 								</label>
 								<div class="col-sm-6">
 									<input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="disableError">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label">{{Utliser le template}}
-									<sup><i class="fas fa-question-circle tooltips" title="{{Permet d'utiliser le template dédié au plugin à la place des widgets core (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)}}"></i></sup>
-								</label>
-								<div class="col-sm-6">
-									<input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="widgetTemplate">
 								</div>
 							</div>
 						</div>

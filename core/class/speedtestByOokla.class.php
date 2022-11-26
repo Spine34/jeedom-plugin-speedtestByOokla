@@ -65,7 +65,7 @@ class speedtestByOokla extends eqLogic
 				'allow_displayType' => true
 			),
 			'timeWidget' => array(
-				'name' => 'Time widget',
+				'name' => 'Widgets time',
 				'type' => '',
 				'default' => '',
 				'allow_transparent' => false,
@@ -264,7 +264,7 @@ class speedtestByOokla extends eqLogic
 	// Permet de modifier l'affichage du widget (également utilisable par les commandes)
 	public function toHtml($_version = 'dashboard')
 	{
-		if ($this->getConfiguration('widgetTemplate') != 1) {
+		if ($this->getConfiguration('widgetTemplate') == 'coreWidget') {
 			return parent::toHtml($_version);
 		}
 		$replace = $this->preToHtml($_version);
