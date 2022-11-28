@@ -149,7 +149,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 									<sup><i class="fas fa-question-circle tooltips" title="{{Permet d'utiliser les templates dédiés au plugin à la place des widgets core (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget}}"></i></sup>
 								</label>
 								<div class="col-sm-6">
-									<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="widgetTemplate">
+									<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="template">
 										<option value="coreWidget">Widgets core</option>
 										<option value="templateWithoutGauges">Template sans jauges</option>
 									</select>
@@ -186,7 +186,6 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							<legend><i class="fas fa-server"></i> {{Liste des serveurs les plus proches}}</legend>
 							<div class="form-group">
 								<div class="alert alert-info col-xs-10 col-xs-offset-1">
-									<!-- <pre class="eqLogicAttr" data-l1key="configuration" data-l2key="serverList" style="font-family: CamingoCode, monospace;"></pre> -->
 									<pre class="serverList" style="font-family: CamingoCode, monospace;"></pre>
 								</div>
 							</div>

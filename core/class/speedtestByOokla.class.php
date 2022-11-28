@@ -165,6 +165,7 @@ class speedtestByOokla extends eqLogic
 	{
 		$this->setIsEnable(1);
 		$this->setIsVisible(1);
+		$this->setConfiguration('template', 'coreWidget');
 		$this->setDisplay('advanceWidgetParametercolorWidgetNamedashboard-default', 1);
 		$this->setDisplay('advanceWidgetParametercolorWidgetNamemobile-default', 1);
 		$this->setDisplay('advanceWidgetParameterbgWidgetNamedashboard-default', 0);
@@ -264,7 +265,7 @@ class speedtestByOokla extends eqLogic
 	// Permet de modifier l'affichage du widget (également utilisable par les commandes)
 	public function toHtml($_version = 'dashboard')
 	{
-		if ($this->getConfiguration('widgetTemplate') == 'coreWidget') {
+		if ($this->getConfiguration('template') == 'coreWidget') {
 			return parent::toHtml($_version);
 		}
 		$replace = $this->preToHtml($_version);
