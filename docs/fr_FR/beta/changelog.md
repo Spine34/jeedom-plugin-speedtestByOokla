@@ -6,8 +6,7 @@
 
 ## 12/11/2022
 
-- Ajout d'un template dédié au plugin version Dashboard
-- Ajout de paramètres au template dans la Configuration avancée de l'équipement => onglet Affichage => section Widget
+- Ajout d'un premier template dédié au plugin version Dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
 
 ## 09/11/2022
 
