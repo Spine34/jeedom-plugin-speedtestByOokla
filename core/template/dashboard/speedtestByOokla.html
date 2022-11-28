@@ -90,6 +90,9 @@
 							</svg>
 						</div>
 					</div>
+					<div class="value">
+						<span class="timeCmd label label-default #history#" data-type="info"></span>
+					</div>
 				</div>
 				<div class="cmd cmd-widget cursor" data-type="action" data-subtype="other" data-cmd_id="#refresh_id#">
 					<div class="content-sm">
@@ -114,6 +117,9 @@
 							</svg>
 						</div>
 						<div class="server"></div>
+					</div>
+					<div class="value">
+						<span class="timeCmd label label-default #history#" data-type="info"></span>
 					</div>
 				</div>
 			</div>
@@ -157,11 +163,21 @@
 		jeedom.cmd.addUpdateFunction('#isp_Id#', function (_options) {
 			$('.cmd[data-cmd_id=#isp_Id#]').attr('title', 'Date de valeur : ' + _options.valueDate + '<br/>Date de collecte : ' + _options.collectDate)
 			$('.cmd[data-cmd_id=#isp_Id#] .isp').empty().append(_options.display_value)
+			if ('#timeWidget#' == '1') {
+				jeedom.cmd.displayDuration(_options.valueDate, $('.cmd[data-cmd_id=#isp_Id#]').find('.timeCmd'), '#time#')
+			} else {
+				$('.cmd[data-cmd_id=#isp_Id#]').find('.timeCmd').parent().remove()
+			}
 		});
 		jeedom.cmd.refreshValue([{ cmd_id: '#isp_Id#', display_value: '#isp_Value#<br>#externalIp_Value#', valueDate: '#isp_ValueDate#', collectDate: '#isp_CollectDate#' }])
 		jeedom.cmd.addUpdateFunction('#server_Id#', function (_options) {
 			$('.cmd[data-cmd_id=#server_Id#]').attr('title', 'Date de valeur : ' + _options.valueDate + '<br/>Date de collecte : ' + _options.collectDate)
 			$('.cmd[data-cmd_id=#server_Id#] .server').empty().append(_options.display_value)
+			if ('#timeWidget#' == '1') {
+				jeedom.cmd.displayDuration(_options.valueDate, $('.cmd[data-cmd_id=#server_Id#]').find('.timeCmd'), '#time#')
+			} else {
+				$('.cmd[data-cmd_id=#server_Id#]').find('.timeCmd').parent().remove()
+			}
 		});
 		jeedom.cmd.refreshValue([{ cmd_id: '#server_Id#', display_value: '#server_Value#', valueDate: '#server_ValueDate#', collectDate: '#server_CollectDate#' }])
 		if ('#refresh_id#' != '') {
