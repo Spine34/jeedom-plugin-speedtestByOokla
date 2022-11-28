@@ -171,7 +171,7 @@
 		} else {
 			$('.eqLogic[data-eqLogic_uid=#uid#] .refresh').remove()
 		}
-		var targetNode = document.querySelector('.speedtestByOokla .cmd.refresh');
+		var targetNode = document.querySelector('.eqLogic[data-eqLogic_uid=#uid#] .cmd.refresh');
 		var observerOptions = {
 			childList: true,
 			attributes: true,
@@ -180,7 +180,7 @@
 		var observer = new MutationObserver(callback);
 		observer.observe(targetNode, observerOptions);
 		function callback(mutationList, observer) {
-			if (document.querySelector('.speedtestByOokla .cmd.refresh').classList.contains('spinning')) {
+			if (document.querySelector('.eqLogic[data-eqLogic_uid=#uid#] .cmd.refresh').classList.contains('spinning')) {
 				$('.eqLogic[data-eqLogic_uid=#uid#]').find('.circleRefresh').addClass('animation')
 			} else {
 				$('.eqLogic[data-eqLogic_uid=#uid#]').find('.circleRefresh').removeClass('animation')
