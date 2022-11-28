@@ -65,7 +65,7 @@ function speedtestByOokla_update()
 			$eqLogic->setDisplay('advanceWidgetParametercmdNamemobile-default', 1);
 			$eqLogic->setDisplay('advanceWidgetParametertimeWidgetdashboard-default', 1);
 			$eqLogic->setDisplay('advanceWidgetParametertimeWidgetmobile-default', 1);
-			$eqLogic->save(true);
+			$eqLogic->save();
 		}
 	}
 }
