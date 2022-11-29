@@ -6,7 +6,7 @@
 	},
 	"licence": "AGPL",
 	"author": "Spine",
-	"require": "4.2",
+	"require": "4.3",
 	"category": "monitoring",
 	"hasDependency": true,
 	"hasOwnDeamon": false,

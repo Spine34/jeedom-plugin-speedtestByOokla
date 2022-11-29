@@ -24,7 +24,55 @@ class speedtestByOokla extends eqLogic
 
 	// Permet de définir les possibilités de personnalisation du widget (en cas d'utilisation de la fonction 'toHtml' par exemple)
 	// Tableau multidimensionnel - exemple: array('custom' => true, 'custom::layout' => false)
-	public static $_widgetPossibility = array('custom' => true);
+
+	// public static $_widgetPossibility = array('custom' => true);
+	public static $_widgetPossibility = array(
+		'custom' => true,
+		'parameters' => array(
+			'colorWidgetName' => array(
+				'name' => 'Couleur de la police du bandeau',
+				'type' => 'color',
+				'default' => '',
+				'allow_transparent' => true,
+				'allow_displayType' => true
+			),
+			'bgWidgetName' => array(
+				'name' => 'Couleur de fond du bandeau',
+				'type' => 'color',
+				'default' => '',
+				'allow_transparent' => true,
+				'allow_displayType' => true
+			),
+			'colorEqLogic' => array(
+				'name' => 'Couleur de la police',
+				'type' => 'color',
+				'default' => '',
+				'allow_transparent' => true,
+				'allow_displayType' => true
+			),
+			'bgEqLogic' => array(
+				'name' => 'Couleur de fond',
+				'type' => 'color',
+				'default' => '',
+				'allow_transparent' => true,
+				'allow_displayType' => true
+			),
+			'cmdName' => array(
+				'name' => 'Nom des commandes',
+				'type' => '',
+				'default' => '',
+				'allow_transparent' => false,
+				'allow_displayType' => true
+			),
+			'timeWidget' => array(
+				'name' => 'Widgets time',
+				'type' => '',
+				'default' => '',
+				'allow_transparent' => false,
+				'allow_displayType' => true
+			)
+		)
+	);
 
 
 	/*
@@ -60,20 +108,13 @@ class speedtestByOokla extends eqLogic
 
 	public static function update()
 	{
-		foreach (eqLogic::byType(__CLASS__) as $eqLogic) {
+		foreach (eqLogic::byType(__CLASS__, true) as $eqLogic) {
 			$autorefresh = $eqLogic->getConfiguration('autorefresh');
-			log::add(__CLASS__, 'debug', $eqLogic->getHumanName() . ' : $autorefresh : ' . $autorefresh);
-			if ($eqLogic->getIsEnable() == 1 && $autorefresh != '') {
+			if ($autorefresh != '') {
 				try {
-					$c = new Cron\CronExpression($autorefresh, new Cron\FieldFactory);
-					log::add(__CLASS__, 'debug', $eqLogic->getHumanName() . ' : $c : ' . $c);
-					log::add(__CLASS__, 'debug', $eqLogic->getHumanName() . ' : $c->isDue() : ' . $c->isDue());
+					$c = new Cron\CronExpression(checkAndFixCron($autorefresh), new Cron\FieldFactory);
 					if ($c->isDue()) {
-						try {
-							$eqLogic->refreshData();
-						} catch (Exception $exc) {
-							log::add(__CLASS__, 'error', $eqLogic->getHumanName() . ' : Error : ' . $exc->getMessage());
-						}
+						$eqLogic->refreshData();
 					}
 				} catch (Exception $exc) {
 					log::add(__CLASS__, 'error', $eqLogic->getHumanName() . ' : Invalid cron expression : ' . $autorefresh);
@@ -124,6 +165,23 @@ class speedtestByOokla extends eqLogic
 	{
 		$this->setIsEnable(1);
 		$this->setIsVisible(1);
+		$this->setConfiguration('template', 'coreWidget');
+		$this->setDisplay('advanceWidgetParametercolorWidgetNamedashboard-default', 1);
+		$this->setDisplay('advanceWidgetParametercolorWidgetNamemobile-default', 1);
+		$this->setDisplay('advanceWidgetParameterbgWidgetNamedashboard-default', 0);
+		$this->setDisplay('advanceWidgetParameterbgWidgetNamedashboard', '#26273b');
+		$this->setDisplay('advanceWidgetParameterbgWidgetNamemobile-default', 0);
+		$this->setDisplay('advanceWidgetParameterbgWidgetNamemobile', '#26273b');
+		$this->setDisplay('advanceWidgetParametercolorEqLogicdashboard-default', 1);
+		$this->setDisplay('advanceWidgetParametercolorEqLogicmobile-default', 1);
+		$this->setDisplay('advanceWidgetParameterbgEqLogicdashboard-default', 0);
+		$this->setDisplay('advanceWidgetParameterbgEqLogicdashboard', '#141526');
+		$this->setDisplay('advanceWidgetParameterbgEqLogicmobile-default', 0);
+		$this->setDisplay('advanceWidgetParameterbgEqLogicmobile', '#141526');
+		$this->setDisplay('advanceWidgetParametercmdNamedashboard-default', 1);
+		$this->setDisplay('advanceWidgetParametercmdNamemobile-default', 1);
+		$this->setDisplay('advanceWidgetParametertimeWidgetdashboard-default', 1);
+		$this->setDisplay('advanceWidgetParametertimeWidgetmobile-default', 1);
 	}
 
 	// Fonction exécutée automatiquement après la création de l'équipement
@@ -204,10 +262,37 @@ class speedtestByOokla extends eqLogic
   }
   */
 
-	/*
-  * Permet de modifier l'affichage du widget (également utilisable par les commandes)
-  public function toHtml($_version = 'dashboard') {}
-  */
+	// Permet de modifier l'affichage du widget (également utilisable par les commandes)
+	public function toHtml($_version = 'dashboard')
+	{
+		if ($this->getConfiguration('template') == 'coreWidget') {
+			return parent::toHtml($_version);
+		}
+		$replace = $this->preToHtml($_version);
+		if (!is_array($replace)) {
+			return $replace;
+		}
+		$version = jeedom::versionAlias($_version);
+		foreach (($this->getCmd('info')) as $cmd) {
+			$logical = $cmd->getLogicalId();
+			$replace['#' . $logical . '_Id#'] = $cmd->getId();
+			if ($logical == 'server') {
+				$server = str_replace(' - ', '<br>', $cmd->execCmd());
+				$servers = explode('(', $server);
+				$server = rtrim($servers[0]);
+				$replace['#' . $logical . '_Value#'] = $server;
+			} else {
+				$replace['#' . $logical . '_Value#'] = $cmd->execCmd();
+			}
+			$replace['#' . $logical . '_ValueDate#'] = $cmd->getValueDate();
+			$replace['#' . $logical . '_CollectDate#'] = $cmd->getCollectDate();
+			$replace['#' . $logical . '_Unite#'] = $cmd->getUnite();
+			$replace['#' . $logical . '_Name#'] = $cmd->getName();
+		}
+		$replace['#cmdName#'] = $this->getDisplay('advanceWidgetParametercmdNamedashboard-default');
+		$replace['#timeWidget#'] = $this->getDisplay('advanceWidgetParametertimeWidgetdashboard-default');
+		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'speedtestByOokla', __CLASS__)));
+	}
 
 	/*
   * Permet de déclencher une action avant modification d'une variable de configuration du plugin

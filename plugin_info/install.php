@@ -47,6 +47,28 @@ function speedtestByOokla_update()
 	$cron->setSchedule('* * * * *');
 	$cron->setTimeout(2);
 	$cron->save();
+	foreach (eqLogic::byType('speedtestByOokla') as $eqLogic) {
+		if ($eqLogic->getConfiguration('template') == '') {
+			$eqLogic->setConfiguration('template', 'coreWidget');
+			$eqLogic->setDisplay('advanceWidgetParametercolorWidgetNamedashboard-default', 1);
+			$eqLogic->setDisplay('advanceWidgetParametercolorWidgetNamemobile-default', 1);
+			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamedashboard-default', 0);
+			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamedashboard', '#26273b');
+			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamemobile-default', 0);
+			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamemobile', '#26273b');
+			$eqLogic->setDisplay('advanceWidgetParametercolorEqLogicdashboard-default', 1);
+			$eqLogic->setDisplay('advanceWidgetParametercolorEqLogicmobile-default', 1);
+			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicdashboard-default', 0);
+			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicdashboard', '#141526');
+			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicmobile-default', 0);
+			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicmobile', '#141526');
+			$eqLogic->setDisplay('advanceWidgetParametercmdNamedashboard-default', 1);
+			$eqLogic->setDisplay('advanceWidgetParametercmdNamemobile-default', 1);
+			$eqLogic->setDisplay('advanceWidgetParametertimeWidgetdashboard-default', 1);
+			$eqLogic->setDisplay('advanceWidgetParametertimeWidgetmobile-default', 1);
+			$eqLogic->save();
+		}
+	}
 }
 
 // Fonction exécutée automatiquement après la suppression du plugin
