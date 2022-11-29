@@ -6,25 +6,32 @@
 	display: flex;
 }
 
+.speedtestByOokla .timeCmd.label {
+	display: inline-block;
+}
+
 .speedtestByOokla .bottomBlock {
 	margin-top: 10px;
 }
 
-.speedtestByOokla .isp {
+.speedtestByOokla .isp,
+.speedtestByOokla .server {
 	display: inline-block;
 }
 
-.speedtestByOokla .circleIsp {
+.speedtestByOokla .circleIsp,
+.speedtestByOokla .circleServer {
 	height: 40px;
 	width: 40px;
 	border-width: 2px;
 	border-style: solid;
 	border-radius: 100%;
-	margin: 0 10px 0 5px;
+	margin: 0 5px 0 5px;
 	display: inline-flex;
 }
 
-.speedtestByOokla .svgPositionIsp {
+.speedtestByOokla .svgIsp,
+.speedtestByOokla .svgServer {
 	margin: auto;
 }
 
@@ -47,6 +54,7 @@
 	background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
 	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
 	-webkit-mask-composite: xor;
+	-webkit-mask-composite: exclude;
 }
 
 .speedtestByOokla .circleRefresh:hover::before {
@@ -71,22 +79,4 @@
 	line-height: 70px;
 	font-size: 24px;
 	font-weight: bold;
-}
-
-.speedtestByOokla .circleServer {
-	height: 40px;
-	width: 40px;
-	border-width: 2px;
-	border-style: solid;
-	border-radius: 100%;
-	margin: 0 5px 0 10px;
-	display: inline-flex;
-}
-
-.speedtestByOokla .svgPositionServer {
-	margin: auto;
-}
-
-.speedtestByOokla .server {
-	display: inline-block;
 }
