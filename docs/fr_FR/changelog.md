@@ -4,6 +4,10 @@
 >
 > S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte.
 
+## 04/12/2022
+
+- Ajout d'un premier template dédié au plugin version Mobile (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
+
 ## 29/11/2022
 
 - Ajout d'un premier template dédié au plugin version Dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
