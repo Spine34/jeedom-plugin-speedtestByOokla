@@ -1,9 +1,10 @@
-<div class="toto eqLogic eqLogic-widget allowResize allowReorderCmd #custom_layout# #eqLogic_class# #class# #category# speedtestByOokla"
+<div class="eqLogic eqLogic-widget text-center allowResize allowReorderCmd #custom_layout# #eqLogic_class# #class# #category# speedtestByOokla"
 	data-eqType="#eqType#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#"
 	data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#"
 	style="width: #width#; height: #height#; #style#;">
-	<link rel="stylesheet" href="plugins/speedtestByOokla/core/template/css/speedtestByOokla.css">
-	<div class="center widget-name">
+	<link rel="stylesheet"
+		href="plugins/speedtestByOokla/core/template/css/dashboard/speedtestByOoklaWithoutGauges.css">
+	<div class="widget-name">
 		<span class="warning" title="#alert_name#">
 			<i class="#alert_icon#"></i>
 		</span>
@@ -14,113 +15,110 @@
 		<a href="#eqLink#" class="reportModeHidden">#name_display#<span class="object_name">#object_name#</span></a>
 	</div>
 	<div class="#isVerticalAlign#">
-		<div class="center">
-			<div class="cmd cmd-widget history cursor tooltipstered" data-type="info" data-subtype="numeric"
-				data-template="tile" data-cmd_id="#download_Id#">
+		<div class="cmd cmd-widget history cursor tooltipstered" data-type="info" data-subtype="numeric"
+			data-template="tile" data-cmd_id="#download_Id#">
+			<div class="title">
+				<div class="cmdName downloadName">#download_Name#</div>
+			</div>
+			<div class="content-sm">
+				<span class="pull-right unit lineHeight"></span>
+				<span class="pull-right state lineHeight"></span>
+				<span class="pull-right svg lineHeight">
+					<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M54.26,198.5a12,12,0,1,0,12,12A12,12,0,0,0,54.26,198.5Zm0,22a10,10,0,1,1,10-10A10,10,0,0,1,54.28,220.5Zm5-11a1,1,0,0,0-.71.29l-3.3,3.3V205.5a1,1,0,0,0-2,0v7.59L50,209.8a1,1,0,1,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5A1,1,0,0,0,59.28,209.5Z"
+							transform="translate(-42.26 -198.5)" fill="#6afff3" />
+					</svg>
+				</span>
+			</div>
+			<div class="value">
+				<span class="timeCmd label label-default history cursor" data-type="info"></span>
+			</div>
+		</div>
+		<div class="cmd cmd-widget history cursor tooltipstered" data-type="info" data-subtype="numeric"
+			data-template="tile" data-cmd_id="#upload_Id#">
+			<div class="title">
+				<div class="cmdName uploadName">#upload_Name#</div>
+			</div>
+			<div class="content-sm">
+				<span class="pull-right unit lineHeight"></span>
+				<span class=" pull-right state lineHeight"></span>
+				<span class="pull-right svg lineHeight">
+					<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M54.26,238a12,12,0,1,0,12,12A12,12,0,0,0,54.26,238Zm0,22a10,10,0,1,1,10-10A10,10,0,0,1,54.28,260ZM55,244.28a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,50,250.7l3.3-3.3V255a1,1,0,0,0,2,0v-7.59l3.3,3.3A1,1,0,0,0,60,249.29Z"
+							transform="translate(-42.26 -238)" fill="#bf71ff" />
+					</svg>
+				</span>
+			</div>
+			<div class="value">
+				<span class="timeCmd label label-default history cursor" data-type="info"></span>
+			</div>
+		</div>
+		<div class="cmd cmd-widget history cursor tooltipstered" data-type="info" data-subtype="numeric"
+			data-template="tile" data-cmd_id="#ping_Id#">
+			<div class="title ">
+				<div class="cmdName pingName">#ping_Name#</div>
+			</div>
+			<div class="content-sm">
+				<span class="pull-right unit lineHeight"></span>
+				<span class="pull-right state lineHeight"></span>
+				<span class="pull-right svg lineHeight">
+					<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M48.5,169.61a1,1,0,0,0,.77.39h10a1,1,0,0,0,0-2H51.19l3.06-3.06a1,1,0,1,0-1.41-1.41l-4.54,4.54a1,1,0,0,0,0,1.41A1,1,0,0,0,48.5,169.61ZM54.26,159a12,12,0,1,0,12,12A12,12,0,0,0,54.26,159Zm0,22a10,10,0,1,1,10-10A10,10,0,0,1,54.28,181ZM60,172.39a1,1,0,0,0-.77-0.39h-10a1,1,0,1,0,0,2h8.09l-3.06,3.06a1,1,0,1,0,1.41,1.41l4.54-4.54a1,1,0,0,0,0-1.41A1,1,0,0,0,60,172.39Z"
+							transform="translate(-42.26 -159.01)" fill="#fff38e" />
+					</svg>
+				</span>
+			</div>
+			<div class="value">
+				<span class="timeCmd label label-default history cursor" data-type="info"></span>
+			</div>
+		</div>
+		<div class="bottomBlock">
+			<div class="cmd cmd-widget tooltipstered" data-type="info" data-subtype="string" data-cmd_id="#isp_Id#">
 				<div class="title">
-					<div class="cmdName downloadName">#download_Name#</div>
+					<div class="cmdName ispName">#isp_Name#</div>
 				</div>
 				<div class="content-sm">
-					<span class="pull-right unit lineHeight"></span>
-					<span class="pull-right state lineHeight"></span>
-					<span class="pull-right svg lineHeight">
-						<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+					<div class="isp"></div>
+					<div class="circleIsp">
+						<svg class="svgIsp" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
 							<path
-								d="M54.26,198.5a12,12,0,1,0,12,12A12,12,0,0,0,54.26,198.5Zm0,22a10,10,0,1,1,10-10A10,10,0,0,1,54.28,220.5Zm5-11a1,1,0,0,0-.71.29l-3.3,3.3V205.5a1,1,0,0,0-2,0v7.59L50,209.8a1,1,0,1,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5A1,1,0,0,0,59.28,209.5Z"
-								transform="translate(-42.26 -198.5)" fill="#6afff3" />
+								d="M22.27 22a.73.73 0 0 1-.733-.73v-.48c0-1.337-.83-2.536-2.062-2.976-1.518-.544-4.037-1.193-7.475-1.193s-5.957.65-7.47 1.19c-1.23.44-2.06 1.638-2.06 2.975v.48c0 .406-.33.73-.733.73S1 21.67 1 21.27v-.48c0-1.958 1.22-3.707 3.036-4.356 1.622-.583 4.317-1.276 7.964-1.276s6.34.693 7.964 1.276C21.78 17.084 23 18.837 23 20.79v.48c0 .4-.33.73-.73.73zM12 2.7c2.425 0 4.4 1.975 4.4 4.4s-1.974 4.4-4.4 4.4-4.4-1.973-4.4-4.4S9.575 2.7 12 2.7m0-1.468a5.87 5.87 0 0 0 0 11.737A5.87 5.87 0 0 0 12 1.23z"
+								fill="var(--link-color)" />
 						</svg>
-					</span>
+					</div>
 				</div>
 				<div class="value">
-					<span class="timeCmd label label-default #history#" data-type="info"></span>
+					<span class="timeCmd label label-default history cursor" data-type="info"></span>
 				</div>
 			</div>
-			<div class="cmd cmd-widget history cursor tooltipstered" data-type="info" data-subtype="numeric"
-				data-template="tile" data-cmd_id="#upload_Id#">
+			<div class="cmd cmd-widget cursor" data-type="action" data-subtype="other" data-cmd_id="#refresh_id#">
+				<div class="content-sm">
+					<a class="refresh">
+						<div class="circleRefresh">
+							<span class="go">GO</span>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="cmd cmd-widget tooltipstered" data-type="info" data-subtype="string" data-cmd_id="#server_Id#">
 				<div class="title">
-					<div class="cmdName uploadName">#upload_Name#</div>
+					<div class="cmdName serverName">#server_Name#</div>
 				</div>
 				<div class="content-sm">
-					<span class="pull-right unit lineHeight"></span>
-					<span class=" pull-right state lineHeight"></span>
-					<span class="pull-right svg lineHeight">
-						<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+					<div class="circleServer">
+						<svg class="svgServer" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
 							<path
-								d="M54.26,238a12,12,0,1,0,12,12A12,12,0,0,0,54.26,238Zm0,22a10,10,0,1,1,10-10A10,10,0,0,1,54.28,260ZM55,244.28a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,50,250.7l3.3-3.3V255a1,1,0,0,0,2,0v-7.59l3.3,3.3A1,1,0,0,0,60,249.29Z"
-								transform="translate(-42.26 -238)" fill="#bf71ff" />
+								d="M12 1C5.94 1 1 5.94 1 12s4.94 11 11 11 11-4.94 11-11S18.06 1 12 1zm9.444 10.247H16.99c-.11-3.487-.86-6.44-2.042-8.26 3.542 1.18 6.177 4.398 6.496 8.26zM12 21.444c-1.557 0-3.273-3.646-3.432-8.69h6.924c-.22 5.043-1.935 8.69-3.492 8.69zM8.568 11.247c.16-5.043 1.875-8.69 3.432-8.69s3.273 3.647 3.432 8.69H8.568zm.48-8.262C7.863 4.812 7.115 7.76 7.005 11.197H2.55c.325-3.812 2.96-7.03 6.497-8.212zm-6.492 9.768H7.01c.11 3.487.86 6.385 2.04 8.212-3.54-1.133-6.175-4.35-6.494-8.212zm12.397 8.26c1.183-1.825 1.93-4.773 2.04-8.21h4.455c-.323 3.812-2.958 7.03-6.495 8.21z"
+								fill="var(--link-color)" />
 						</svg>
-					</span>
+					</div>
+					<div class="server"></div>
 				</div>
 				<div class="value">
-					<span class="timeCmd label label-default #history#" data-type="info"></span>
-				</div>
-			</div>
-			<div class="cmd cmd-widget history cursor tooltipstered" data-type="info" data-subtype="numeric"
-				data-template="tile" data-cmd_id="#ping_Id#">
-				<div class="title ">
-					<div class="cmdName pingName">#ping_Name#</div>
-				</div>
-				<div class="content-sm">
-					<span class="pull-right unit lineHeight"></span>
-					<span class="pull-right state lineHeight"></span>
-					<span class="pull-right svg lineHeight">
-						<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-							<path
-								d="M48.5,169.61a1,1,0,0,0,.77.39h10a1,1,0,0,0,0-2H51.19l3.06-3.06a1,1,0,1,0-1.41-1.41l-4.54,4.54a1,1,0,0,0,0,1.41A1,1,0,0,0,48.5,169.61ZM54.26,159a12,12,0,1,0,12,12A12,12,0,0,0,54.26,159Zm0,22a10,10,0,1,1,10-10A10,10,0,0,1,54.28,181ZM60,172.39a1,1,0,0,0-.77-0.39h-10a1,1,0,1,0,0,2h8.09l-3.06,3.06a1,1,0,1,0,1.41,1.41l4.54-4.54a1,1,0,0,0,0-1.41A1,1,0,0,0,60,172.39Z"
-								transform="translate(-42.26 -159.01)" fill="#fff38e" />
-						</svg>
-					</span>
-				</div>
-				<div class="value">
-					<span class="timeCmd label label-default #history#" data-type="info"></span>
-				</div>
-			</div>
-			<div class="bottomBlock">
-				<div class="cmd cmd-widget tooltipstered" data-type="info" data-subtype="string" data-cmd_id="#isp_Id#">
-					<div class="title">
-						<div class="cmdName ispName">#isp_Name#</div>
-					</div>
-					<div class="content-sm">
-						<div class="isp"></div>
-						<div class="circleIsp">
-							<svg class="svgIsp" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M22.27 22a.73.73 0 0 1-.733-.73v-.48c0-1.337-.83-2.536-2.062-2.976-1.518-.544-4.037-1.193-7.475-1.193s-5.957.65-7.47 1.19c-1.23.44-2.06 1.638-2.06 2.975v.48c0 .406-.33.73-.733.73S1 21.67 1 21.27v-.48c0-1.958 1.22-3.707 3.036-4.356 1.622-.583 4.317-1.276 7.964-1.276s6.34.693 7.964 1.276C21.78 17.084 23 18.837 23 20.79v.48c0 .4-.33.73-.73.73zM12 2.7c2.425 0 4.4 1.975 4.4 4.4s-1.974 4.4-4.4 4.4-4.4-1.973-4.4-4.4S9.575 2.7 12 2.7m0-1.468a5.87 5.87 0 0 0 0 11.737A5.87 5.87 0 0 0 12 1.23z"
-									fill="var(--link-color)" />
-							</svg>
-						</div>
-					</div>
-					<div class="value">
-						<span class="timeCmd label label-default #history#" data-type="info"></span>
-					</div>
-				</div>
-				<div class="cmd cmd-widget cursor" data-type="action" data-subtype="other" data-cmd_id="#refresh_id#">
-					<div class="content-sm">
-						<a class="refresh">
-							<div class="circleRefresh">
-								<span class="go">GO</span>
-							</div>
-						</a>
-					</div>
-				</div>
-				<div class="cmd cmd-widget tooltipstered" data-type="info" data-subtype="string"
-					data-cmd_id="#server_Id#">
-					<div class="title">
-						<div class="cmdName serverName">#server_Name#</div>
-					</div>
-					<div class="content-sm">
-						<div class="circleServer">
-							<svg class="svgServer" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-								<path
-									d="M12 1C5.94 1 1 5.94 1 12s4.94 11 11 11 11-4.94 11-11S18.06 1 12 1zm9.444 10.247H16.99c-.11-3.487-.86-6.44-2.042-8.26 3.542 1.18 6.177 4.398 6.496 8.26zM12 21.444c-1.557 0-3.273-3.646-3.432-8.69h6.924c-.22 5.043-1.935 8.69-3.492 8.69zM8.568 11.247c.16-5.043 1.875-8.69 3.432-8.69s3.273 3.647 3.432 8.69H8.568zm.48-8.262C7.863 4.812 7.115 7.76 7.005 11.197H2.55c.325-3.812 2.96-7.03 6.497-8.212zm-6.492 9.768H7.01c.11 3.487.86 6.385 2.04 8.212-3.54-1.133-6.175-4.35-6.494-8.212zm12.397 8.26c1.183-1.825 1.93-4.773 2.04-8.21h4.455c-.323 3.812-2.958 7.03-6.495 8.21z"
-									fill="var(--link-color)" />
-							</svg>
-						</div>
-						<div class="server"></div>
-					</div>
-					<div class="value">
-						<span class="timeCmd label label-default #history#" data-type="info"></span>
-					</div>
+					<span class="timeCmd label label-default history cursor" data-type="info"></span>
 				</div>
 			</div>
 		</div>
