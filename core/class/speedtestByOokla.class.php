@@ -291,7 +291,7 @@ class speedtestByOokla extends eqLogic
 		}
 		$replace['#cmdName#'] = $this->getDisplay('advanceWidgetParametercmdNamedashboard-default');
 		$replace['#timeWidget#'] = $this->getDisplay('advanceWidgetParametertimeWidgetdashboard-default');
-		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'speedtestByOokla', __CLASS__)));
+		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'speedtestByOoklaWithoutGauges', __CLASS__)));
 	}
 
 	/*
