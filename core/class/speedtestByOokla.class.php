@@ -289,8 +289,13 @@ class speedtestByOokla extends eqLogic
 			$replace['#' . $logical . '_Unite#'] = $cmd->getUnite();
 			$replace['#' . $logical . '_Name#'] = $cmd->getName();
 		}
-		$replace['#cmdName#'] = $this->getDisplay('advanceWidgetParametercmdNamedashboard-default');
-		$replace['#timeWidget#'] = $this->getDisplay('advanceWidgetParametertimeWidgetdashboard-default');
+		if ($version == 'dashboard') {
+			$replace['#cmdName#'] = $this->getDisplay('advanceWidgetParametercmdNamedashboard-default');
+			$replace['#timeWidget#'] = $this->getDisplay('advanceWidgetParametertimeWidgetdashboard-default');
+		} else {
+			$replace['#cmdName#'] = $this->getDisplay('advanceWidgetParametercmdNamemobile-default');
+			$replace['#timeWidget#'] = $this->getDisplay('advanceWidgetParametertimeWidgetmobile-default');
+		}
 		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'speedtestByOoklaWithoutGauges', __CLASS__)));
 	}
 

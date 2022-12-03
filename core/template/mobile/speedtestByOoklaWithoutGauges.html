@@ -71,7 +71,7 @@
 			if ('#timeWidget#' == '1') {
 				jeedom.cmd.displayDuration(_options.valueDate, $('.cmd[data-cmd_id=#download_Id#]').find('.timeCmd'), '#time#')
 			} else {
-				$('.cmd[data-cmd_id=#download_Id#]').find('.timeCmd').parent().remove()
+				$('.cmd[data-cmd_id=#download_Id#]').find('.timeCmd').remove()
 			}
 		});
 		jeedom.cmd.refreshValue([{ cmd_id: '#download_Id#', display_value: '#download_Value#', valueDate: '#download_ValueDate#', collectDate: '#download_CollectDate#', unit: '#download_Unite#' }])
@@ -81,7 +81,7 @@
 			if ('#timeWidget#' == '1') {
 				jeedom.cmd.displayDuration(_options.valueDate, $('.cmd[data-cmd_id=#upload_Id#]').find('.timeCmd'), '#time#')
 			} else {
-				$('.cmd[data-cmd_id=#upload_Id#]').find('.timeCmd').parent().remove()
+				$('.cmd[data-cmd_id=#upload_Id#]').find('.timeCmd').remove()
 			}
 		});
 		jeedom.cmd.refreshValue([{ cmd_id: '#upload_Id#', display_value: '#upload_Value#', valueDate: '#upload_ValueDate#', collectDate: '#upload_CollectDate#', unit: '#upload_Unite#' }])
@@ -91,7 +91,7 @@
 			if ('#timeWidget#' == '1') {
 				jeedom.cmd.displayDuration(_options.valueDate, $('.cmd[data-cmd_id=#ping_Id#]').find('.timeCmd'), '#time#')
 			} else {
-				$('.cmd[data-cmd_id=#ping_Id#]').find('.timeCmd').parent().remove()
+				$('.cmd[data-cmd_id=#ping_Id#]').find('.timeCmd').remove()
 			}
 		});
 		jeedom.cmd.refreshValue([{ cmd_id: '#ping_Id#', display_value: '#ping_Value#', valueDate: '#ping_ValueDate#', collectDate: '#ping_CollectDate#', unit: '#ping_Unite#' }])
@@ -101,6 +101,21 @@
 			})
 		} else {
 			$('.eqLogic[data-eqLogic_uid=#uid#] .refresh').remove()
+		}
+		if ('#colorWidgetName#' != '') {
+			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.widget-name span').attr('style', 'color: #colorWidgetName# !important;')
+		}
+		if ('#bgWidgetName#' != '') {
+			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.widget-name').attr('style', 'background-color: #bgWidgetName# !important;')
+		}
+		if ('#colorEqLogic#' != '') {
+			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.state, .cmd-widget > center').attr('style', 'color: #colorEqLogic# !important;')
+		}
+		if ('#bgEqLogic#' != '') {
+			$('.eqLogic[data-eqLogic_uid=#uid#]').attr('style', $('.eqLogic[data-eqLogic_uid=#uid#]').attr('style') + 'background-color: #bgEqLogic# !important;')
+		}
+		if ('#cmdName#' != '1') {
+			$('.eqLogic[data-eqLogic_uid=#uid#]').find('.cmdName').remove()
 		}
 	</script>
 </div>
