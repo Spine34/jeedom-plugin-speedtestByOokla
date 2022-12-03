@@ -134,7 +134,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 									<sup><i class="fas fa-question-circle tooltips" title="{{Permet de définir la fréquence de rafraîchissement des commandes infos et de la liste des serveurs les plus proches}}"></i></sup>
 								</label>
 								<div class="col-sm-6">
-									<div class="input-group">
+									<div class="input-group" style="margin-bottom: unset;">
 										<input type="text" class="eqLogicAttr form-control roundedLeft" data-l1key="configuration" data-l2key="autorefresh" placeholder="{{Cliquer sur ? pour afficher l'assistant cron}}">
 										<span class="input-group-btn">
 											<a class="btn btn-default cursor jeeHelper roundedRight" data-helper="cron" title="Assistant cron">
