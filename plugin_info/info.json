@@ -2,7 +2,8 @@
 	"id": "speedtestByOokla",
 	"name": "Speedtest by Ookla",
 	"description": {
-		"fr_FR": "Ce plugin permet de tester la bande passante internet à l'aide de https://www.speedtest.net"
+		"fr_FR": "Ce plugin permet de tester la bande passante internet à l'aide de https://www.speedtest.net",
+		"en_US": "This plugin allows you to test the Internet bandwidth using https://www.speedtest.net"
 	},
 	"licence": "AGPL",
 	"author": "Spine",
