@@ -14,8 +14,7 @@
 		"Min": "Min",
 		"Nom de la commande": "Command name",
 		"Supprimer la commande": "Delete the command",
-		"Unité": "Unit",
-		"Tester": "Test"
+		"Unité": "Unit"
 	},
 	"plugins\/speedtestByOokla\/desktop\/php\/speedtestByOokla.php": {
 		"401 - Accès non autorisé": "401 - Unauthorized access",
