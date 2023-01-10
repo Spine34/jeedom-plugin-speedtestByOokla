@@ -28,7 +28,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 		<legend><i class="fas fa-table"></i> {{Mes équipements Speedtest by Ookla}}</legend>
 		<?php
 		if (count($eqLogics) == 0) {
-			echo '<br><div class="text-center" style="font-size:1.2em;font-weight:bold;">{{Aucun équipement Template trouvé, cliquer sur "Ajouter" pour commencer}}</div>';
+			echo '<br><div class="text-center" style="font-size:1.2em;font-weight:bold;">{{Aucun équipement Speedtest by Ookla trouvé, cliquer sur "Ajouter" pour commencer}}</div>';
 		} else {
 			// Champ de recherche
 			echo '<div class="input-group" style="margin:5px;">';
@@ -150,8 +150,9 @@ $eqLogics = eqLogic::byType($plugin->getId());
 								</label>
 								<div class="col-sm-6">
 									<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="template">
-										<option value="coreWidget">Widgets core</option>
-										<option value="templateWithoutGauges">Template sans jauges</option>
+										<option value="coreWidget">{{Widgets core}}</option>
+										<option value="templateWithoutGauges">{{Template sans jauges}}</option>
+										<!-- <option value="templateWithoutGauges">{{Template avec jauges}}</option> -->
 									</select>
 								</div>
 							</div>
