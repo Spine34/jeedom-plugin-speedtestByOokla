@@ -61,5 +61,9 @@
 		"Widgets core": "Core widgets",
 		"Template sans jauges": "Template without gauges",
 		"Template avec jauges": "Template with gauges"
+	},
+	"plugins\/speedtestByOokla\/core\/template\/dashboard\/speedtestByOoklaWithoutGauges.html": {
+		"Date de valeur": "Value date",
+		"Date de collecte": "Collect date"
 	}
 }

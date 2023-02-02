@@ -126,7 +126,7 @@
 	#divGraphInfo#
 	<script>
 		jeedom.cmd.addUpdateFunction('#download_Id#', function (_options) {
-			$('.cmd[data-cmd_id=#download_Id#]').attr('title', 'Date de valeur : ' + _options.valueDate + '<br/>Date de collecte : ' + _options.collectDate)
+			$('.cmd[data-cmd_id=#download_Id#]').attr('title', '{{Date de valeur}} : ' + _options.valueDate + '<br/>{{Date de collecte}} : ' + _options.collectDate)
 			$('.cmd[data-cmd_id=#download_Id#] .state').empty().append(_options.display_value)
 			$('.cmd[data-cmd_id=#download_Id#] .unit').empty().append(_options.unit)
 			if ('#timeWidget#' == '1') {
@@ -137,7 +137,7 @@
 		});
 		jeedom.cmd.refreshValue([{ cmd_id: '#download_Id#', display_value: '#download_Value#', valueDate: '#download_ValueDate#', collectDate: '#download_CollectDate#', unit: '#download_Unite#' }])
 		jeedom.cmd.addUpdateFunction('#upload_Id#', function (_options) {
-			$('.cmd[data-cmd_id=#upload_Id#]').attr('title', 'Date de valeur : ' + _options.valueDate + '<br/>Date de collecte : ' + _options.collectDate)
+			$('.cmd[data-cmd_id=#upload_Id#]').attr('title', '{{Date de valeur}} : ' + _options.valueDate + '<br/>{{Date de collecte}} : ' + _options.collectDate)
 			$('.cmd[data-cmd_id=#upload_Id#] .state').empty().append(_options.display_value)
 			$('.cmd[data-cmd_id=#upload_Id#] .unit').empty().append(_options.unit)
 			if ('#timeWidget#' == '1') {
@@ -148,7 +148,7 @@
 		});
 		jeedom.cmd.refreshValue([{ cmd_id: '#upload_Id#', display_value: '#upload_Value#', valueDate: '#upload_ValueDate#', collectDate: '#upload_CollectDate#', unit: '#upload_Unite#' }])
 		jeedom.cmd.addUpdateFunction('#ping_Id#', function (_options) {
-			$('.cmd[data-cmd_id=#ping_Id#]').attr('title', 'Date de valeur : ' + _options.valueDate + '<br/>Date de collecte : ' + _options.collectDate)
+			$('.cmd[data-cmd_id=#ping_Id#]').attr('title', '{{Date de valeur}} : ' + _options.valueDate + '<br/>{{Date de collecte}} : ' + _options.collectDate)
 			$('.cmd[data-cmd_id=#ping_Id#] .state').empty().append(_options.display_value)
 			$('.cmd[data-cmd_id=#ping_Id#] .unit').empty().append(_options.unit)
 			if ('#timeWidget#' == '1') {
@@ -159,7 +159,7 @@
 		});
 		jeedom.cmd.refreshValue([{ cmd_id: '#ping_Id#', display_value: '#ping_Value#', valueDate: '#ping_ValueDate#', collectDate: '#ping_CollectDate#', unit: '#ping_Unite#' }])
 		jeedom.cmd.addUpdateFunction('#isp_Id#', function (_options) {
-			$('.cmd[data-cmd_id=#isp_Id#]').attr('title', 'Date de valeur : ' + _options.valueDate + '<br/>Date de collecte : ' + _options.collectDate)
+			$('.cmd[data-cmd_id=#isp_Id#]').attr('title', '{{Date de valeur}} : ' + _options.valueDate + '<br/>{{Date de collecte}} : ' + _options.collectDate)
 			$('.cmd[data-cmd_id=#isp_Id#] .isp').empty().append(_options.display_value)
 			if ('#timeWidget#' == '1') {
 				jeedom.cmd.displayDuration(_options.valueDate, $('.cmd[data-cmd_id=#isp_Id#]').find('.timeCmd'), '#time#')
@@ -169,7 +169,7 @@
 		});
 		jeedom.cmd.refreshValue([{ cmd_id: '#isp_Id#', display_value: '#isp_Value#<br>#externalIp_Value#', valueDate: '#isp_ValueDate#', collectDate: '#isp_CollectDate#' }])
 		jeedom.cmd.addUpdateFunction('#server_Id#', function (_options) {
-			$('.cmd[data-cmd_id=#server_Id#]').attr('title', 'Date de valeur : ' + _options.valueDate + '<br/>Date de collecte : ' + _options.collectDate)
+			$('.cmd[data-cmd_id=#server_Id#]').attr('title', '{{Date de valeur}} : ' + _options.valueDate + '<br/>{{Date de collecte}} : ' + _options.collectDate)
 			$('.cmd[data-cmd_id=#server_Id#] .server').empty().append(_options.display_value)
 			if ('#timeWidget#' == '1') {
 				jeedom.cmd.displayDuration(_options.valueDate, $('.cmd[data-cmd_id=#server_Id#]').find('.timeCmd'), '#time#')
