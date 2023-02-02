@@ -4,11 +4,15 @@
 >
 > If there is no information on the update, it is because it only concerns the update of documentation, translation or text.
 
+## 02/02/2023
+
+- Translation of the plugin in English
+
 ## 04/12/2022
 
 - Addition of a first template dedicated to the plugin mobile version (parameters in advanced equipment configuration => View tab => Widget section)
 
-## 11/29/2022
+## 29/11/2022
 
 - Addition of a first template dedicated to the Dashboard version plugin (parameters in advanced equipment configuration => View tab => Widget section)
 
