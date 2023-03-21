@@ -219,24 +219,43 @@ class speedtestByOokla extends eqLogic
 			$cmd = $this->getCmd(null, $command['logicalId']);
 			if (!is_object($cmd)) {
 				log::add(__CLASS__, 'info', $this->getHumanName() . ' : Command [' . $command['name'] . '] created');
-				$cmd = (new speedtestByOoklaCmd);
-				$cmd->setEqLogic_id($this->getId());
-				$cmd->setName($command['name']);
+				$cmd = (new hyperionNGCmd);
 				$cmd->setLogicalId($command['logicalId']);
+				// if (isset($command['generic_type'])) {
+				// 	$cmd->setGeneric_type($command['generic_type']);
+				// }
+				$cmd->setName($command['name']);
+				$cmd->setOrder($order++);
 				$cmd->setType($command['type']);
 				$cmd->setSubType($command['subType']);
-				$cmd->setOrder($order++);
-				if (isset($command['unite'])) {
-					$cmd->setUnite($command['unite']);
-				}
+				$cmd->setEqLogic_id($this->getId());
 				if (isset($command['isHistorized'])) {
 					$cmd->setIsHistorized($command['isHistorized']);
+				}
+				if (isset($command['unite'])) {
+					$cmd->setUnite($command['unite']);
 				}
 				if (isset($command['configuration'])) {
 					foreach ($command['configuration'] as $key => $value) {
 						$cmd->setConfiguration($key, $value);
 					}
 				}
+				// if (isset($command['template'])) {
+				// 	foreach ($command['template'] as $key => $value) {
+				// 		$cmd->setTemplate($key, $value);
+				// 	}
+				// }
+				// if (isset($command['display'])) {
+				// 	foreach ($command['display'] as $key => $value) {
+				// 		$cmd->setDisplay($key, $value);
+				// 	}
+				// }
+				// if (isset($command['value'])) {
+				// 	$cmd->setValue($this->getCmd(null, $command['value'])->getId());
+				// }
+				// if (isset($command['isVisible'])) {
+				// 	$cmd->setIsVisible($command['isVisible']);
+				// }
 				$cmd->save();
 			}
 		}
