@@ -58,11 +58,11 @@
 }
 
 .speedtestByOokla .circleRefresh:hover::before {
-	animation: rotate 1s linear infinite;
+	animation: speedtestByOoklaRotate 1s linear infinite;
 }
 
 .speedtestByOokla .circleRefresh.animation:before {
-	animation: rotate 1s linear infinite;
+	animation: speedtestByOoklaRotate 1s linear infinite;
 }
 
 .speedtestByOokla .go {
@@ -71,7 +71,7 @@
 	font-weight: bold;
 }
 
-@keyframes rotate {
+@keyframes speedtestByOoklaRotate {
 	0% {
 		transform: rotate(0deg);
 	}
