@@ -219,7 +219,7 @@ class speedtestByOokla extends eqLogic
 			$cmd = $this->getCmd(null, $command['logicalId']);
 			if (!is_object($cmd)) {
 				log::add(__CLASS__, 'info', $this->getHumanName() . ' : Command [' . $command['name'] . '] created');
-				$cmd = (new hyperionNGCmd);
+				$cmd = (new speedtestByOoklaCmd);
 				$cmd->setLogicalId($command['logicalId']);
 				// if (isset($command['generic_type'])) {
 				// 	$cmd->setGeneric_type($command['generic_type']);
