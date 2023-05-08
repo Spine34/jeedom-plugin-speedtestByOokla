@@ -343,6 +343,7 @@ class speedtestByOokla extends eqLogic
 	public function refreshData()
 	{
 		if ($this->getIsEnable() == 1) {
+			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : test');
 			$speedtest = shell_exec('cat /etc/resolv.conf');
 			$speedtests = explode("\n", rtrim($speedtest));
 			foreach ($speedtests as $speedtest) {
