@@ -343,46 +343,68 @@ class speedtestByOokla extends eqLogic
 	public function refreshData()
 	{
 		if ($this->getIsEnable() == 1) {
-			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : test');
-			$speedtest = shell_exec('cat /etc/resolv.conf');
-			$speedtests = explode("\n", rtrim($speedtest));
-			foreach ($speedtests as $speedtest) {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : cat /etc/resolv.conf : ' . $speedtest);
+
+			// $speedtest = shell_exec('cat /etc/resolv.conf');
+			// $speedtests = explode("\n", rtrim($speedtest));
+			// foreach ($speedtests as $speedtest) {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : cat /etc/resolv.conf : ' . $speedtest);
+			// }
+			// $speedtest = shell_exec('ip addr');
+			// $speedtests = explode("\n", rtrim($speedtest));
+			// foreach ($speedtests as $speedtest) {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : ip addr : ' . $speedtest);
+			// }
+			// $speedtest = shell_exec('ip route');
+			// $speedtests = explode("\n", rtrim($speedtest));
+			// foreach ($speedtests as $speedtest) {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : ip route : ' . $speedtest);
+			// }
+			// $speedtest = shell_exec('cat /etc/dhcpcd.conf');
+			// $speedtests = explode("\n", rtrim($speedtest));
+			// foreach ($speedtests as $speedtest) {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : cat /etc/dhcpcd.conf : ' . $speedtest);
+			// }
+			// $speedtest = shell_exec('whoami');
+			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : whoami : ' . $speedtest);
+			// $speedtest = shell_exec('sudo whoami');
+			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : sudo whoami : ' . $speedtest);
+			// $speedtest = shell_exec('sudo cat /etc/passwd');
+			// $speedtests = explode("\n", rtrim($speedtest));
+			// foreach ($speedtests as $speedtest) {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : sudo cat /etc/passwd : ' . $speedtest);
+			// }
+			// $speedtest = shell_exec('ls -la /etc/dhcpcd.conf');
+			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : ls -la /etc/dhcpcd.conf : ' . $speedtest);
+			// $speedtest = shell_exec('ls -la /etc/resolv.conf');
+			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : ls -la /etc/resolv.conf : ' . $speedtest);
+			// $speedtest = shell_exec('ls -la /usr/bin/speedtest');
+			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : ls -la /usr/bin/speedtest : ' . $speedtest);
+			// $speedtest = shell_exec('sudo /usr/bin/speedtest -vvv');
+			// $speedtests = explode("\n", rtrim($speedtest));
+			// foreach ($speedtests as $speedtest) {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : sudo /usr/bin/speedtest -vvv : ' . $speedtest);
+			// }
+
+			if ($this->getConfiguration('serverId') == '') {
+				$cmd = 'sudo /usr/bin/speedtest --accept-license --accept-gdpr --format=json';
+			} else {
+				$cmd = 'sudo /usr/bin/speedtest --accept-license --accept-gdpr --format=json --server-id=' . $this->getConfiguration('serverId');
 			}
-			$speedtest = shell_exec('ip addr');
-			$speedtests = explode("\n", rtrim($speedtest));
-			foreach ($speedtests as $speedtest) {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : ip addr : ' . $speedtest);
-			}
-			$speedtest = shell_exec('ip route');
-			$speedtests = explode("\n", rtrim($speedtest));
-			foreach ($speedtests as $speedtest) {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : ip route : ' . $speedtest);
-			}
-			$speedtest = shell_exec('cat /etc/dhcpcd.conf');
-			$speedtests = explode("\n", rtrim($speedtest));
-			foreach ($speedtests as $speedtest) {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : cat /etc/dhcpcd.conf : ' . $speedtest);
-			}
-			$speedtest = shell_exec('whoami');
-			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : whoami : ' . $speedtest);
-			$speedtest = shell_exec('sudo whoami');
-			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : sudo whoami : ' . $speedtest);
-			$speedtest = shell_exec('sudo cat /etc/passwd');
-			$speedtests = explode("\n", rtrim($speedtest));
-			foreach ($speedtests as $speedtest) {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : sudo cat /etc/passwd : ' . $speedtest);
-			}
-			$speedtest = shell_exec('ls -la /etc/dhcpcd.conf');
-			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : ls -la /etc/dhcpcd.conf : ' . $speedtest);
-			$speedtest = shell_exec('ls -la /etc/resolv.conf');
-			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : ls -la /etc/resolv.conf : ' . $speedtest);
-			$speedtest = shell_exec('ls -la /usr/bin/speedtest');
-			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : ls -la /usr/bin/speedtest : ' . $speedtest);
-			$speedtest = shell_exec('sudo /usr/bin/speedtest -vvv');
-			$speedtests = explode("\n", rtrim($speedtest));
-			foreach ($speedtests as $speedtest) {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : sudo /usr/bin/speedtest -vvv : ' . $speedtest);
+			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $cmd : ' . $cmd);
+			$speedtest = shell_exec($cmd);
+			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
+			if ($speedtest == false || $speedtest == null) {
+				$speedtest = shell_exec($cmd . ' 2>&1');
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
+				$speedtests = explode("\n", rtrim($speedtest));
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtests : ' . print_r($speedtests, true));
+				foreach ($speedtests as $speedtest) {
+					if ($this->getConfiguration('disableError') != 1) {
+						log::add(__CLASS__, 'error', $this->getHumanName() . ' : Error shell_exec() : ' . $speedtest);
+					} else {
+						log::add(__CLASS__, 'warning', $this->getHumanName() . ' : Error shell_exec() : ' . $speedtest);
+					}
+				}
 			}
 
 			// if ($this->getConfiguration('serverId') == '') {
