@@ -394,8 +394,9 @@ class speedtestByOokla extends eqLogic
 				$cmd = 'sudo /usr/bin/speedtest --accept-license --accept-gdpr --format=json --server-id=' . $this->getConfiguration('serverId');
 			}
 			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $cmd : ' . $cmd);
-			$speedtest = shell_exec($cmd);
+			// $speedtest = shell_exec($cmd);
 
+			$speedtest = shell_exec($cmd);
 			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
 			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : gettype($speedtest) : ' . gettype($speedtest));
 			if ($speedtest == false) {
@@ -417,6 +418,30 @@ class speedtestByOokla extends eqLogic
 				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest === null');
 			} else {
 				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest !== null');
+			}
+
+			$speedtestError = shell_exec($cmd . ' 2>&1');
+			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError : ' . $speedtestError);
+			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : gettype($speedtestError) : ' . gettype($speedtestError));
+			if ($speedtestError == false) {
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError == false');
+			} else {
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError != false');
+			}
+			if ($speedtestError === false) {
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError === false');
+			} else {
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError !== false');
+			}
+			if ($speedtestError == null) {
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError == null');
+			} else {
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError != null');
+			}
+			if ($speedtestError === null) {
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError === null');
+			} else {
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError !== null');
 			}
 
 			// if ($speedtest == false || $speedtest == null) {
