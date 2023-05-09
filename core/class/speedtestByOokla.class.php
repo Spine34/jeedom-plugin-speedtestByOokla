@@ -405,31 +405,28 @@ class speedtestByOokla extends eqLogic
 					}
 				}
 			} else {
-
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : OOOOOOOOOOOOOOOOOOKKKKKKKKKKKKKK : ');
-
-				// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
-				// $speedtest = json_decode($speedtest, true);
-				// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . print_r($speedtest, true));
-				// $this->checkAndUpdateCmd('download', $speedtest['download']['bandwidth']);
-				// $this->checkAndUpdateCmd('upload', $speedtest['upload']['bandwidth']);
-				// $this->checkAndUpdateCmd('ping', $speedtest['ping']['latency']);
-				// $this->checkAndUpdateCmd('isp', $speedtest['isp']);
-				// $this->checkAndUpdateCmd('internalIp', $speedtest['interface']['internalIp']);
-				// $this->checkAndUpdateCmd('externalIp', $speedtest['interface']['externalIp']);
-				// $this->checkAndUpdateCmd('server', $speedtest['server']['name'] . ' - ' . $speedtest['server']['location'] . ' (id: ' . $speedtest['server']['id'] . ')');
-				// $this->checkAndUpdateCmd('timestamp', date('Y-m-d H:i:s', strtotime($speedtest['timestamp'])));
-				// log::add(__CLASS__, 'info', $this->getHumanName() . ' : Updated commands');
-				// $serverList = shell_exec('sudo /usr/bin/speedtest --servers');
-				// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverList : ' . $serverList);
-				// $serverList = str_replace('Closest servers:' . "\n" . "\n", '', $serverList);
-				// $serverLists = explode("\n", rtrim($serverList));
-				// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverLists : ' . print_r($serverLists, true));
-				// foreach ($serverLists as $server) {
-				// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $server : ' . $server);
-				// }
-				// $this->setConfiguration('serverList', $serverList);
-				// $this->save();
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
+				$speedtest = json_decode($speedtest, true);
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . print_r($speedtest, true));
+				$this->checkAndUpdateCmd('download', $speedtest['download']['bandwidth']);
+				$this->checkAndUpdateCmd('upload', $speedtest['upload']['bandwidth']);
+				$this->checkAndUpdateCmd('ping', $speedtest['ping']['latency']);
+				$this->checkAndUpdateCmd('isp', $speedtest['isp']);
+				$this->checkAndUpdateCmd('internalIp', $speedtest['interface']['internalIp']);
+				$this->checkAndUpdateCmd('externalIp', $speedtest['interface']['externalIp']);
+				$this->checkAndUpdateCmd('server', $speedtest['server']['name'] . ' - ' . $speedtest['server']['location'] . ' (id: ' . $speedtest['server']['id'] . ')');
+				$this->checkAndUpdateCmd('timestamp', date('Y-m-d H:i:s', strtotime($speedtest['timestamp'])));
+				log::add(__CLASS__, 'info', $this->getHumanName() . ' : Updated commands');
+				$serverList = shell_exec('sudo /usr/bin/speedtest --servers');
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverList : ' . $serverList);
+				$serverList = str_replace('Closest servers:' . "\n" . "\n", '', $serverList);
+				$serverLists = explode("\n", rtrim($serverList));
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverLists : ' . print_r($serverLists, true));
+				foreach ($serverLists as $server) {
+					log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $server : ' . $server);
+				}
+				$this->setConfiguration('serverList', $serverList);
+				$this->save();
 			}
 		}
 	}
