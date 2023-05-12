@@ -369,8 +369,8 @@ class speedtestByOokla extends eqLogic
 			// }
 			// $speedtest = shell_exec('whoami');
 			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : whoami : ' . $speedtest);
-			// $speedtest = shell_exec('sudo whoami');
-			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : sudo whoami : ' . $speedtest);
+			$speedtest = shell_exec('sudo whoami');
+			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : sudo whoami : ' . $speedtest);
 			// $speedtest = shell_exec('sudo cat /etc/passwd');
 			// $speedtests = explode("\n", rtrim($speedtest));
 			// foreach ($speedtests as $speedtest) {
@@ -382,68 +382,76 @@ class speedtestByOokla extends eqLogic
 			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : ls -la /etc/resolv.conf : ' . $speedtest);
 			// $speedtest = shell_exec('ls -la /usr/bin/speedtest');
 			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : ls -la /usr/bin/speedtest : ' . $speedtest);
-			// $speedtest = shell_exec('sudo /usr/bin/speedtest -vvv');
-			// $speedtests = explode("\n", rtrim($speedtest));
-			// foreach ($speedtests as $speedtest) {
-			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : sudo /usr/bin/speedtest -vvv : ' . $speedtest);
+
+			$speedtest = shell_exec('sudo /usr/bin/speedtest -vvv');
+			$speedtests = explode("\n", rtrim($speedtest));
+			foreach ($speedtests as $speedtest) {
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : sudo /usr/bin/speedtest -vvv : ' . $speedtest);
+			}
+
+			// if ($this->getConfiguration('serverId') == '') {
+			// 	$cmd = 'sudo /usr/bin/speedtest --accept-license --accept-gdpr --format=json';
+			// } else {
+			// 	$cmd = 'sudo /usr/bin/speedtest --accept-license --accept-gdpr --format=json --server-id=' . $this->getConfiguration('serverId');
+			// }
+			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $cmd : ' . $cmd);
+			// $speedtest = shell_exec($cmd);
+			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
+			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : gettype($speedtest) : ' . gettype($speedtest));
+			// if ($speedtest == false) {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest == false');
+			// } else {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest != false');
+			// }
+			// if ($speedtest === false) {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest === false');
+			// } else {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest !== false');
+			// }
+			// if ($speedtest == null) {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest == null');
+			// } else {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest != null');
+			// }
+			// if ($speedtest === null) {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest === null');
+			// } else {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest !== null');
 			// }
 
-			if ($this->getConfiguration('serverId') == '') {
-				$cmd = 'sudo /usr/bin/speedtest --accept-license --accept-gdpr --format=json';
-			} else {
-				$cmd = 'sudo /usr/bin/speedtest --accept-license --accept-gdpr --format=json --server-id=' . $this->getConfiguration('serverId');
-			}
-			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $cmd : ' . $cmd);
+			// $speedtestError = shell_exec($cmd . ' 2>&1');
+			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError : ' . $speedtestError);
+			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : gettype($speedtestError) : ' . gettype($speedtestError));
+			// if ($speedtestError == false) {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError == false');
+			// } else {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError != false');
+			// }
+			// if ($speedtestError === false) {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError === false');
+			// } else {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError !== false');
+			// }
+			// if ($speedtestError == null) {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError == null');
+			// } else {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError != null');
+			// }
+			// if ($speedtestError === null) {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError === null');
+			// } else {
+			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError !== null');
+			// }
+
+
+
+			// if ($this->getConfiguration('serverId') == '') {
+			// 	$cmd = 'sudo /usr/bin/speedtest --accept-license --accept-gdpr --format=json';
+			// } else {
+			// 	$cmd = 'sudo /usr/bin/speedtest --accept-license --accept-gdpr --format=json --server-id=' . $this->getConfiguration('serverId');
+			// }
+			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $cmd : ' . $cmd);
 			// $speedtest = shell_exec($cmd);
-
-			$speedtest = shell_exec($cmd);
-			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
-			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : gettype($speedtest) : ' . gettype($speedtest));
-			if ($speedtest == false) {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest == false');
-			} else {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest != false');
-			}
-			if ($speedtest === false) {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest === false');
-			} else {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest !== false');
-			}
-			if ($speedtest == null) {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest == null');
-			} else {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest != null');
-			}
-			if ($speedtest === null) {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest === null');
-			} else {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest !== null');
-			}
-
-			$speedtestError = shell_exec($cmd . ' 2>&1');
-			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError : ' . $speedtestError);
-			log::add(__CLASS__, 'debug', $this->getHumanName() . ' : gettype($speedtestError) : ' . gettype($speedtestError));
-			if ($speedtestError == false) {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError == false');
-			} else {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError != false');
-			}
-			if ($speedtestError === false) {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError === false');
-			} else {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError !== false');
-			}
-			if ($speedtestError == null) {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError == null');
-			} else {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError != null');
-			}
-			if ($speedtestError === null) {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError === null');
-			} else {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtestError !== null');
-			}
-
 			// if ($speedtest == false || $speedtest == null) {
 			// 	$speedtest = shell_exec($cmd . ' 2>&1');
 			// 	log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
