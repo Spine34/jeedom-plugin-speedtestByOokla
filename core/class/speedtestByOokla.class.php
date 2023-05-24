@@ -16,9 +16,6 @@
 */
 
 /* * ***************************Includes********************************* */
-
-use function PHPSTORM_META\elementType;
-
 require_once __DIR__  . '/../../../../core/php/core.inc.php';
 
 class speedtestByOokla extends eqLogic
