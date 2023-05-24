@@ -345,7 +345,6 @@ class speedtestByOokla extends eqLogic
 
 	public function refreshData()
 	{
-		//test
 		if ($this->getIsEnable() == 1) {
 			if ($this->getConfiguration('serverId') == '') {
 				$cmd = 'sudo /usr/bin/speedtest --accept-license --accept-gdpr --format=json';
