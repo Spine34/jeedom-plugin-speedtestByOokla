@@ -4,6 +4,10 @@
 >
 > S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte.
 
+## 19/08/2023
+
+- Ajout d'un bouton pour générer automatique un post sur Community sur la page principale du plugin
+
 ## 10/01/2023
 
 - Traduction du plugin en anglais
