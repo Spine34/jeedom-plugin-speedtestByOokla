@@ -60,7 +60,8 @@
 		"Visible": "Visible",
 		"Widgets core": "Core widgets",
 		"Template sans jauges": "Template without gauges",
-		"Template avec jauges": "Template with gauges"
+		"Template avec jauges": "Template with gauges",
+		"Créer un post Community": "Create a community post"
 	},
 	"plugins\/speedtestByOokla\/core\/template\/dashboard\/speedtestByOoklaWithoutGauges.html": {
 		"Date de valeur": "Value date",
