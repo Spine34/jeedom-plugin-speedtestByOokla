@@ -60,6 +60,4 @@ Après téléchargement du plugin, il faut l'activer et installer ses dépendanc
 
 > **Note**
 >
-> L'IP interne et l'IP externe retournées sont identiques si votre serveur accède à internet en IPv6
-
-22 :warning: 33
+> L'IP interne et l'IP externe retournées sont identiques si votre serveur accède à internet en IPv6.

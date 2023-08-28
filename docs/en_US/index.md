@@ -60,4 +60,4 @@ After downloading the plugin, you must activate it and install its dependencies.
 
 > **Note**
 >
-> The internal IP and the external IP returned are identical if your server accesses the internet in IPv6
+> The internal IP and the external IP returned are identical if your server accesses the internet in IPv6.
