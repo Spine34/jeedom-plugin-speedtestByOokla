@@ -1,28 +1,28 @@
 # Plugin Speedtest by Ookla
 
-This plugin allows you to test the Internet bandwidth using [Speedtest by Ookla](https://www.speedtest.net).
+This plugin allows to test internet bandwidth using [Speedtest by Ookla](https://www.speedtest.net).
 
-## Plugin configuration
+## Plugin Setup
 
-After downloading the plugin, you have to activate it and install its outbuildings.
+After downloading the plugin, you must activate it and install its dependencies.
 
-## Configuration of equipment
+## Equipment configuration
 
-- **Equipment name**: allows you to give a name of your equipment
-- **Parent object**: allows the parent object to be indicated to which the equipment belongs
+- **Equipment name**: allows you to name your equipment
+- **Parent object**: allows you to indicate the parent object to which the equipment belongs
 - **Category**: allows you to choose the categories of the equipment (it can belong to several categories)
-- **Activate**: allows you to make your equipment active
-- **visible**: allows you to make your equipment visible
-- **Self-actualization**: allows you to define the frequency of refreshment of info commands and the list of closest servers
-- **Templates**: allows you to use the templates dedicated to the plugin instead of the core widgets (parameters in advanced equipment configuration => display tab => Widget section)
-- **ID of the test server**: allows you to choose a specific test server (to be used only if the server chosen automatically returns erroneous values)
-- **Disable errors**: allows you to deactivate errors when your Internet connection is out of service
-- **Description of the equipment**: allows you to give a description to your equipment
-- **List of closest servers**: allows you to display the closest server list
+- **Activate**: makes your equipment active
+- **Visible**: allows you to make your equipment visible
+- **Auto-refresh**: allows you to define the refresh frequency of the info commands and the list of the closest servers
+- **Templates**: allows the use of templates dedicated to the plugin instead of core widgets (settings in Advanced equipment configuration => Display tab => Widget section)
+- **Test server ID**: allows you to choose a specific test server (to be used only if the automatically chosen server returns incorrect values)
+- **Disable errors**: allows you to disable errors when your internet connection is down
+- **Equipment description**: allows you to give a description to your equipment
+- **List of closest servers**: displays the list of closest servers
 
 > **Important**
 >
-> The plugin automatically accepts the general conditions of use of the package `speedtest` :
+> The plugin automatically accepts the terms of use of the `speedtest` package:
 > ```
 > ==============================================================================
 > 
@@ -60,4 +60,4 @@ After downloading the plugin, you have to activate it and install its outbuildin
 
 > **Note**
 >
-> The internal IP and the returned external IP are identical if your server accesses the Internet in IPv6
+> The internal IP and the external IP returned are identical if your server accesses the internet in IPv6
