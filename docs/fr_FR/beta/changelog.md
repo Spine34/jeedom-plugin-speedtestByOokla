@@ -6,7 +6,7 @@
 
 ## 19/08/2023
 
-- Ajout d'un bouton pour générer automatique un post sur Community sur la page principale du plugin
+- Ajout d'un bouton pour générer automatiquement un post sur Community sur la page principale du plugin (>= 4.4.0)
 
 ## 10/01/2023
 
@@ -14,11 +14,11 @@
 
 ## 03/12/2022
 
-- Ajout d'un premier template dédié au plugin version Mobile (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
+- Ajout d'un premier template dédié au plugin version mobile (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
 
 ## 12/11/2022
 
-- Ajout d'un premier template dédié au plugin version Dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
+- Ajout d'un premier template dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
 
 ## 09/11/2022
 
