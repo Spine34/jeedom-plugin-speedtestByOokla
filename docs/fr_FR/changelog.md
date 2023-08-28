@@ -10,11 +10,11 @@
 
 ## 04/12/2022
 
-- Ajout d'un premier template dédié au plugin version Mobile (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
+- Ajout d'un premier template dédié au plugin version mobile (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
 
 ## 29/11/2022
 
-- Ajout d'un premier template dédié au plugin version Dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
+- Ajout d'un premier template dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
 
 ## 09/11/2022
 
