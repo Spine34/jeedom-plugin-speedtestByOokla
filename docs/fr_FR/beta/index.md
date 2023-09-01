@@ -20,7 +20,7 @@ Après téléchargement du plugin, il faut l'activer et installer ses dépendanc
 - **Description de l’équipement** : permet de donner une description à votre équipement
 - **Liste des serveurs les plus proches** : permet d'afficher la liste des serveurs les plus proches
 
-> :warning: **Important**
+> **Important**
 >
 > Le plugin accepte automatiquement les conditions générales d'utilisation du paquet `speedtest` :
 > ```
@@ -58,6 +58,6 @@ Après téléchargement du plugin, il faut l'activer et installer ses dépendanc
 > License acceptance recorded. Continuing.
 > ```
 
-> :memo: **Note**
+> **Note**
 >
 > L'IP interne et l'IP externe retournées sont identiques si votre serveur accède à internet en IPv6.
