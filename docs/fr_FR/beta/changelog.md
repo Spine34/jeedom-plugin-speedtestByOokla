@@ -6,7 +6,10 @@
 
 ##
 
-- Ajout d'un template léger
+- Passage en pur JS
+
+- Ajout d'un template sans jauges dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
+- Ajout d'un template léger dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
 - Augmentation de la version minimale du Core supportée par le plugin (>= 4.4.0)
 
 ## 19/08/2023
