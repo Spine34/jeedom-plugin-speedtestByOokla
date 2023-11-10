@@ -10,11 +10,11 @@
 
 ## 04/12/2022
 
-- Addition of a first template dedicated to the mobile version plugin (settings in Advanced equipment configuration => Display tab => Widget section)
+- Adding a template dedicated to the mobile version plugin (parameters in Advanced equipment configuration => View tab => Widget section)
 
 ## 29/11/2022
 
-- Addition of a first template dedicated to the dashboard version plugin (settings in Advanced equipment configuration => Display tab => Widget section)
+- Adding a template without gauges dedicated to the plugin dashboard version (parameters in advanced equipment configuration => display tab => widget section)
 
 ## 09/11/2022
 

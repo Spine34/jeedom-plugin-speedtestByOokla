@@ -4,6 +4,11 @@
 >
 > S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte.
 
+##
+
+- Ajout d'un template léger
+- Augmentation de la version minimale du Core supportée par le plugin (>= 4.4.0)
+
 ## 19/08/2023
 
 - Ajout d'un bouton pour générer automatiquement un post sur Community sur la page principale du plugin (>= 4.4.0)
@@ -14,11 +19,11 @@
 
 ## 03/12/2022
 
-- Ajout d'un premier template dédié au plugin version mobile (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
+- Ajout d'un template dédié au plugin version mobile (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
 
 ## 12/11/2022
 
-- Ajout d'un premier template dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
+- Ajout d'un template sans jauges dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
 
 ## 09/11/2022
 
