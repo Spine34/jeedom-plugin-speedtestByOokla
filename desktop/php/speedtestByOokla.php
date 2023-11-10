@@ -180,7 +180,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 										<option value="coreWidget">{{Widgets core}}</option>
 										<option value="templateLite">{{Template léger}}</option>
 										<option value="templateWithoutGauges">{{Template sans jauges}}</option>
-										<option value="templateWithoutGauges">{{Template avec jauges}}</option>
+										<option value="templateWithGauges">{{Template avec jauges}}</option>
 									</select>
 								</div>
 							</div>
