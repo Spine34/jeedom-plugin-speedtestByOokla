@@ -293,6 +293,11 @@ class speedtestByOokla extends eqLogic
 			return $replace;
 		}
 		$version = jeedom::versionAlias($_version);
+		if ($version == 'dashboard') {
+			$template = $this->getConfiguration('template');
+		} else {
+			$template = 'speedtestByOokla';
+		}
 		foreach (($this->getCmd('info')) as $cmd) {
 			$logical = $cmd->getLogicalId();
 			$replace['#' . $logical . '_Id#'] = $cmd->getId();
@@ -316,9 +321,9 @@ class speedtestByOokla extends eqLogic
 			$replace['#cmdName#'] = $this->getDisplay('advanceWidgetParametercmdNamemobile-default');
 			$replace['#timeWidget#'] = $this->getDisplay('advanceWidgetParametertimeWidgetmobile-default');
 		}
-		// return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'speedtestByOoklaWithoutGauges', __CLASS__)));
-		$html = template_replace($replace, getTemplate('core', $version, 'speedtestByOoklaWithoutGauges', __CLASS__));
-		$html = translate::exec($html, 'plugins/speedtestByOokla/core/template/' . $version . '/speedtestByOoklaWithoutGauges.html');
+		// return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, $template, __CLASS__)));
+		$html = template_replace($replace, getTemplate('core', $version, $template, __CLASS__));
+		$html = translate::exec($html, 'plugins/speedtestByOokla/core/template/' . $version . '/' . $template . '.html');
 		$html = $this->postToHtml($_version, $html);
 		return $html;
 	}
