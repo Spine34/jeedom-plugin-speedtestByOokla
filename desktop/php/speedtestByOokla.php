@@ -179,7 +179,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 									<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="template">
 										<option value="coreWidget">{{Widgets core}}</option>
 										<!-- <option value="speedtestByOoklaLite">{{Template allégé}}</option> -->
-										<!-- <option value="speedtestByOoklaWithoutGauges">{{Template sans jauges}}</option> -->
+										<option value="speedtestByOoklaWithoutGauges">{{Template sans jauges}}</option>
 										<!-- <option value="speedtestByOoklaWithGauges">{{Template avec jauges}}</option> -->
 									</select>
 								</div>
