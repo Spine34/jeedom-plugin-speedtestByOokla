@@ -89,5 +89,5 @@ function addCmdToTable(_cmd) {
 }
 
 function printEqLogic(_eqLogic) {
-	$('.serverList').empty().append(_eqLogic.configuration.serverList)
+	document.querySelector('.serverList').innerHTML = _eqLogic.configuration.serverList;
 }
