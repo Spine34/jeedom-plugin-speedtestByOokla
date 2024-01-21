@@ -9,13 +9,18 @@
 - Correction du template sans jauges dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
 - Ajout d'un template allégé dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget) -->
 
+## 21/01/2024
+
+- Suppression du bouton pour générer automatiquement un post sur Community sur la page principale du plugin (intégré dans le core sur la page de configuration des plugins)
+- Mise à jour de la traduction
+
 ## 15/01/2024
 
-- Augmentation de la version minimale du Core supportée par le plugin (>= 4.4.0)
+- Augmentation de la version minimale du Core supportée par le plugin (>= 4.4)
 
 ## 19/08/2023
 
-- Ajout d'un bouton pour générer automatiquement un post sur Community sur la page principale du plugin (>= 4.4.0)
+- Ajout d'un bouton pour générer automatiquement un post sur Community sur la page principale du plugin (>= 4.4)
 
 ## 10/01/2023
 

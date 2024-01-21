@@ -2,13 +2,27 @@
 
 > **IMPORTANT**
 >
-> If there is no information on the update, it means that it concerns only the update of documentation, translation or text.
+> If there is no information on the update, it is because it only concerns the update of documentation, translation or text.
 
-## 08/19/2023
+<!-- - Passage en pur JS
+- Ajout d'un template avec jauges dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
+- Correction du template sans jauges dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
+- Ajout d'un template allégé dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget) -->
 
-- Added a button to automatically generate a post on Community on the main page of the plugin (>= 4.4.0)
+## 21/01/2024
 
-## 01/10/2023
+- Deletion of the button to automatically generate a Post on Community on the main plugin page (integrated into the Core on the plugin configuration page)
+- Translation update
+
+## 15/01/2024
+
+- Increase in the minimum core version supported by the plugin (> = 4.4)
+
+## 19/08/2023
+
+- Adding a button to automatically generate a community post on the main plugin page (> = 4.4)
+
+## 10/01/2023
 
 - Translation of the plugin in English
 
@@ -22,40 +36,40 @@
 
 ## 09/11/2022
 
-- First stable release
+- First stable version
 
 ## 07/11/2022
 
-- Added a cron dedicated to the plugin in the task engine
-- Removal of cron in plugin configuration
+- Adding a cron dedicated to the plugin in the task engine
+- Deletion of the CRON in the plugin configuration
 
 ## 05/11/2022
 
-- Fixed maximum dependencies installation time
-- Fixed deleting list of closest servers when saving equipment
-- Fixed type of Server ID field
-- Add command button removed from commands list
+- Maximum time installation of dependencies
+- Correction of the deletion of the closest server list to back up equipment
+- Field type correction of the server ID
+- Deleting the Add a command button in the command list
 
 ## 28/10/2022
 
-- Added list of nearest servers in equipment configuration
-- Added the possibility to use a specific test server, to be used only if the automatically chosen server returns wrong values
+- Addition of the closest server list in the equipment configuration
+- Adding the possibility of using a specific test server, to be used only if the server chosen automatically returns erroneous values
 
 ## 26/10/2022
 
-- Removal of the Type column in the list of commands
-- Removed the drop-down menu to link action commands to info commands in the commands list
-- History of Download, Upload and Ping commands by default
-- Added option to disable errors when your internet connection is down
+- Deletion of the type column in the list of commands
+- Deletion of the drop -down menu to link Action Commands to Info controls in the list of commands
+- Historization of Download, Upload and Ping commands by default
+- Adding an option to deactivate errors when your Internet connection is out of service
 
 ## 25/10/2022
 
-- Fixed dependencies installation on Raspbian/Buster
-- Fixed units
+- Correction of the installation of outbuildings on Raspbian/Buster
+- Units correction
 
 ## 22/10/2022
 
-- Added Timestamp command
+- Adding the Timetamp command
 
 ## 21/10/2022
 

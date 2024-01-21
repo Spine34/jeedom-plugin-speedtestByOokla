@@ -2,7 +2,7 @@
 
 > **IMPORTANT**
 >
-> If there is no information on the update, it means that it concerns only the update of documentation, translation or text.
+> If there is no information on the update, it is because it only concerns the update of documentation, translation or text.
 
 ## 02/02/2023
 
@@ -18,40 +18,40 @@
 
 ## 09/11/2022
 
-- First stable release
+- First stable version
 
 ## 07/11/2022
 
-- Added a cron dedicated to the plugin in the task engine
-- Removal of cron in plugin configuration
+- Adding a cron dedicated to the plugin in the task engine
+- Deletion of the CRON in the plugin configuration
 
 ## 05/11/2022
 
-- Fixed maximum dependencies installation time
-- Fixed deleting list of closest servers when saving equipment
-- Fixed type of Server ID field
-- Add command button removed from commands list
+- Maximum time installation of dependencies
+- Correction of the deletion of the closest server list to back up equipment
+- Field type correction of the server ID
+- Deleting the Add a command button in the command list
 
 ## 28/10/2022
 
-- Added list of nearest servers in equipment configuration
-- Added the possibility to use a specific test server, to be used only if the automatically chosen server returns wrong values
+- Addition of the closest server list in the equipment configuration
+- Adding the possibility of using a specific test server, to be used only if the server chosen automatically returns erroneous values
 
 ## 26/10/2022
 
-- Removal of the Type column in the list of commands
-- Removed the drop-down menu to link action commands to info commands in the commands list
-- History of Download, Upload and Ping commands by default
-- Added option to disable errors when your internet connection is down
+- Deletion of the type column in the list of commands
+- Deletion of the drop -down menu to link Action Commands to Info controls in the list of commands
+- Historization of Download, Upload and Ping commands by default
+- Adding an option to deactivate errors when your Internet connection is out of service
 
 ## 25/10/2022
 
-- Fixed dependencies installation on Raspbian/Buster
-- Fixed units
+- Correction of the installation of outbuildings on Raspbian/Buster
+- Units correction
 
 ## 22/10/2022
 
-- Added Timestamp command
+- Adding the Timetamp command
 
 ## 21/10/2022
 
