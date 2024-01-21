@@ -5,6 +5,8 @@
 > If there is no information on the update, it is because it only concerns the update of documentation, translation or text.
 
 <!-- - Passage en pur JS
+- Suppression des IP dans le log pour faciliter le partage
+- Ajout d'un lien vers [Speedtest by Ookla](https://www.speedtest.net) sur les templates dédiés au plugin
 - Ajout d'un template avec jauges dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
 - Correction du template sans jauges dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
 - Ajout d'un template allégé dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget) -->
@@ -12,7 +14,6 @@
 ## 21/01/2024
 
 - Deletion of the button to automatically generate a Post on Community on the main plugin page (integrated into the Core on the plugin configuration page)
-- Translation update
 
 ## 15/01/2024
 
