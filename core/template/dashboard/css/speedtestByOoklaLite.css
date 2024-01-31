@@ -1,3 +1,15 @@
+.speedtestByOokla .cmd.link {
+	margin-top: 5px;
+}
+
+.speedtestByOokla .cmd.link i {
+	font-size: 12px;
+}
+
+.speedtestByOokla .pull-left {
+	margin-left: 5px;
+}
+
 .speedtestByOokla .svg {
 	position: relative;
 	top: 3px;
