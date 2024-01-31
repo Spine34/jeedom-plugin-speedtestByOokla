@@ -1,0 +1,155 @@
+<div class="eqLogic eqLogic-widget text-center allowResize allowReorderCmd #custom_layout# #eqLogic_class# #class# #category# speedtestByOokla"
+	data-eqType="#eqType#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#"
+	data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#"
+	style="width: #width#; height: #height#; #style#">
+	<link rel="stylesheet" href="plugins/speedtestByOokla/core/template/dashboard/css/speedtestByOoklaLite.css">
+	<div class="widget-name">
+		<span style="color: #background-color#" title="#alert_name#">
+			<i class='#alert_icon#'></i>
+		</span>
+		<span class="cmd refresh pull-right cursor" data-cmd_id="#refresh_id#">
+			<i class="fas fa-sync"></i>
+		</span>
+		<span class="panelLink pull-left cursor">
+			<a href="https://www.speedtest.net" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+		</span>
+		<span class="reportModeVisible">#name_display# <span class="object_name">#object_name#</span></span>
+		<a href="#eqLink#" class="reportModeHidden">#name_display# <span class="object_name">#object_name#</span></a>
+	</div>
+	<div class="cmds #isVerticalAlign#">
+
+		<div class="cmd cmd-widget #history#" data-type="info" data-subtype="numeric" data-template="tile"
+			data-cmd_id="#download_Id#" data-cmd_uid="#uid#" data-version="#version#" data-eqLogic_id="#eqLogic_id#">
+			<div class="title #hide_name#">
+				<div class="cmdName downloadName">#download_Name#</div>
+			</div>
+			<div class="content">
+				<div>
+					<span class="svg">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24.01 23.99">
+							<path
+								d="M54.26,198.5a12,12,0,1,0,12,12A12,12,0,0,0,54.26,198.5Zm0,22a10,10,0,1,1,10-10A10,10,0,0,1,54.28,220.5Zm5-11a1,1,0,0,0-.71.29l-3.3,3.3V205.5a1,1,0,0,0-2,0v7.59L50,209.8a1,1,0,1,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5A1,1,0,0,0,59.28,209.5Z"
+								transform="translate(-42.26 -198.5)" fill="#6afff3" />
+						</svg>
+					</span>
+					<span class="value state"></span>
+					<span class="unit"></span>
+				</div>
+			</div>
+			<div class="timeCmd label label-default #history#" data-type="info"></div>
+		</div>
+
+		<div class="cmd cmd-widget #history#" data-type="info" data-subtype="numeric" data-template="tile"
+			data-cmd_id="#upload_Id#" data-cmd_uid="#uid#" data-version="#version#" data-eqLogic_id="#eqLogic_id#">
+			<div class="title #hide_name#">
+				<div class="cmdName uploadName">#upload_Name#</div>
+			</div>
+			<div class="content">
+				<div>
+					<span class="svg">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24.01 23.99">
+							<path
+								d="M54.26,238a12,12,0,1,0,12,12A12,12,0,0,0,54.26,238Zm0,22a10,10,0,1,1,10-10A10,10,0,0,1,54.28,260ZM55,244.28a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,50,250.7l3.3-3.3V255a1,1,0,0,0,2,0v-7.59l3.3,3.3A1,1,0,0,0,60,249.29Z"
+								transform="translate(-42.26 -238)" fill="#bf71ff" />
+						</svg>
+					</span>
+					<span class="value state"></span>
+					<span class="unit"></span>
+				</div>
+			</div>
+			<div class="timeCmd label label-default #history#" data-type="info"></div>
+		</div>
+
+		<div class="cmd cmd-widget #history#" data-type="info" data-subtype="numeric" data-template="tile"
+			data-cmd_id="#ping_Id#" data-cmd_uid="#uid#" data-version="#version#" data-eqLogic_id="#eqLogic_id#">
+			<div class="title #hide_name#">
+				<div class="cmdName pingName">#ping_Name#</div>
+			</div>
+			<div class="content">
+				<div>
+					<span class="svg">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24.01 23.99">
+							<path
+								d="M48.5,169.61a1,1,0,0,0,.77.39h10a1,1,0,0,0,0-2H51.19l3.06-3.06a1,1,0,1,0-1.41-1.41l-4.54,4.54a1,1,0,0,0,0,1.41A1,1,0,0,0,48.5,169.61ZM54.26,159a12,12,0,1,0,12,12A12,12,0,0,0,54.26,159Zm0,22a10,10,0,1,1,10-10A10,10,0,0,1,54.28,181ZM60,172.39a1,1,0,0,0-.77-0.39h-10a1,1,0,1,0,0,2h8.09l-3.06,3.06a1,1,0,1,0,1.41,1.41l4.54-4.54a1,1,0,0,0,0-1.41A1,1,0,0,0,60,172.39Z"
+								transform="translate(-42.26 -159.01)" fill="#fff38e" />
+						</svg>
+					</span>
+					<span class="value state"></span>
+					<span class="unit"></span>
+				</div>
+			</div>
+			<div class="timeCmd label label-default #history#" data-type="info"></div>
+		</div>
+
+	</div>
+	#divGraphInfo#
+	<script>
+		if ('#refresh_id#' != '') {
+			document.querySelector('.eqLogic[data-eqLogic_uid="#uid#"] .refresh')?.addEventListener('click', function () {
+				jeedom.cmd.execute({ id: '#refresh_id#' })
+			})
+		} else {
+			document.querySelector('.eqLogic[data-eqLogic_uid="#uid#"] .refresh')?.remove()
+		}
+
+		jeedom.cmd.addUpdateFunction('#download_Id#', function (_options) {
+			if (is_object(cmd = document.querySelector('.cmd[data-cmd_id="#download_Id#"]'))) {
+				cmd.querySelector('.content').setAttribute('title', '{{Date de valeur}}: ' + _options.valueDate + '<br>{{Date de collecte}}: ' + _options.collectDate)
+				if ('#timeWidget#' == 1) {
+					jeedom.cmd.displayDuration(_options.valueDate, cmd.querySelector('.timeCmd'), '#time#')
+				}
+				cmd.querySelector('.value').innerHTML = _options.display_value
+				cmd.querySelector('.unit').innerHTML = _options.unit
+			}
+		})
+		jeedom.cmd.refreshValue([{ cmd_id: '#download_Id#', display_value: '#download_Value#', valueDate: '#download_ValueDate#', collectDate: '#download_CollectDate#', unit: '#download_Unite#' }])
+
+		jeedom.cmd.addUpdateFunction('#upload_Id#', function (_options) {
+			if (is_object(cmd = document.querySelector('.cmd[data-cmd_id="#upload_Id#"]'))) {
+				cmd.querySelector('.content').setAttribute('title', '{{Date de valeur}}: ' + _options.valueDate + '<br>{{Date de collecte}}: ' + _options.collectDate)
+				if ('#timeWidget#' == 1) {
+					jeedom.cmd.displayDuration(_options.valueDate, cmd.querySelector('.timeCmd'), '#time#')
+				}
+				cmd.querySelector('.value').innerHTML = _options.display_value
+				cmd.querySelector('.unit').innerHTML = _options.unit
+			}
+		})
+		jeedom.cmd.refreshValue([{ cmd_id: '#upload_Id#', display_value: '#upload_Value#', valueDate: '#upload_ValueDate#', collectDate: '#upload_CollectDate#', unit: '#upload_Unite#' }])
+
+		jeedom.cmd.addUpdateFunction('#ping_Id#', function (_options) {
+			if (is_object(cmd = document.querySelector('.cmd[data-cmd_id="#ping_Id#"]'))) {
+				cmd.querySelector('.content').setAttribute('title', '{{Date de valeur}}: ' + _options.valueDate + '<br>{{Date de collecte}}: ' + _options.collectDate)
+				if ('#timeWidget#' == 1) {
+					jeedom.cmd.displayDuration(_options.valueDate, cmd.querySelector('.timeCmd'), '#time#')
+				}
+				cmd.querySelector('.value').innerHTML = _options.display_value
+				cmd.querySelector('.unit').innerHTML = _options.unit
+			}
+		})
+		jeedom.cmd.refreshValue([{ cmd_id: '#ping_Id#', display_value: '#ping_Value#', valueDate: '#ping_ValueDate#', collectDate: '#ping_CollectDate#', unit: '#ping_Unite#' }])
+
+		if (is_object(eqLogic = document.querySelector('.eqLogic[data-eqLogic_uid=#uid#]'))) {
+			if ('#colorWidgetName#' != '') {
+				eqLogic.querySelector('.widget-name > a').style.setProperty('color', '#colorWidgetName#', 'important')
+			}
+			if ('#bgWidgetName#' != '') {
+				eqLogic.querySelector('.widget-name').style.setProperty('background-color', '#bgWidgetName#', 'important')
+			}
+			if ('#colorEqLogic#' != '') {
+				elements = eqLogic.querySelectorAll('.cmdName, .value, .unit')
+				elements.forEach(element => {
+					element.style.setProperty('color', '#colorEqLogic#', 'important')
+				})
+			}
+			if ('#bgEqLogic#' != '') {
+				eqLogic.style.setProperty('background-color', '#bgEqLogic#', 'important')
+			}
+			if ('#cmdName#' != 1) {
+				elements = eqLogic.querySelectorAll('.title')
+				elements.forEach(element => {
+					element.remove()
+				})
+			}
+		}
+	</script>
+</div>
