@@ -86,69 +86,69 @@
 	<script>
 		if ('#refresh_id#' != '') {
 			document.querySelector('.eqLogic[data-eqLogic_uid="#uid#"] .refresh')?.addEventListener('click', function () {
-				jeedom.cmd.execute({ id: '#refresh_id#' })
-			})
+				jeedom.cmd.execute({ id: '#refresh_id#' });
+			});
 		} else {
-			document.querySelector('.eqLogic[data-eqLogic_uid="#uid#"] .refresh')?.remove()
+			document.querySelector('.eqLogic[data-eqLogic_uid="#uid#"] .refresh')?.remove();
 		}
 
 		jeedom.cmd.addUpdateFunction('#download_Id#', function (_options) {
 			if (is_object(cmd = document.querySelector('.cmd[data-cmd_id="#download_Id#"]'))) {
-				cmd.querySelector('.content').setAttribute('title', '{{Date de valeur}}: ' + _options.valueDate + '<br>{{Date de collecte}}: ' + _options.collectDate)
+				cmd.querySelector('.content').setAttribute('title', '{{Date de valeur}}: ' + _options.valueDate + '<br>{{Date de collecte}}: ' + _options.collectDate);
 				if ('#timeWidget#' == 1) {
-					jeedom.cmd.displayDuration(_options.valueDate, cmd.querySelector('.timeCmd'), '#time#')
+					jeedom.cmd.displayDuration(_options.valueDate, cmd.querySelector('.timeCmd'), '#time#');
 				}
-				cmd.querySelector('.value').innerHTML = _options.display_value
-				cmd.querySelector('.unit').innerHTML = _options.unit
+				cmd.querySelector('.value').innerHTML = _options.display_value;
+				cmd.querySelector('.unit').innerHTML = _options.unit;
 			}
-		})
-		jeedom.cmd.refreshValue([{ cmd_id: '#download_Id#', display_value: '#download_Value#', valueDate: '#download_ValueDate#', collectDate: '#download_CollectDate#', unit: '#download_Unite#' }])
+		});
+		jeedom.cmd.refreshValue([{ cmd_id: '#download_Id#', display_value: '#download_Value#', valueDate: '#download_ValueDate#', collectDate: '#download_CollectDate#', unit: '#download_Unite#' }]);
 
 		jeedom.cmd.addUpdateFunction('#upload_Id#', function (_options) {
 			if (is_object(cmd = document.querySelector('.cmd[data-cmd_id="#upload_Id#"]'))) {
-				cmd.querySelector('.content').setAttribute('title', '{{Date de valeur}}: ' + _options.valueDate + '<br>{{Date de collecte}}: ' + _options.collectDate)
+				cmd.querySelector('.content').setAttribute('title', '{{Date de valeur}}: ' + _options.valueDate + '<br>{{Date de collecte}}: ' + _options.collectDate);
 				if ('#timeWidget#' == 1) {
-					jeedom.cmd.displayDuration(_options.valueDate, cmd.querySelector('.timeCmd'), '#time#')
+					jeedom.cmd.displayDuration(_options.valueDate, cmd.querySelector('.timeCmd'), '#time#');
 				}
-				cmd.querySelector('.value').innerHTML = _options.display_value
-				cmd.querySelector('.unit').innerHTML = _options.unit
+				cmd.querySelector('.value').innerHTML = _options.display_value;
+				cmd.querySelector('.unit').innerHTML = _options.unit;
 			}
-		})
-		jeedom.cmd.refreshValue([{ cmd_id: '#upload_Id#', display_value: '#upload_Value#', valueDate: '#upload_ValueDate#', collectDate: '#upload_CollectDate#', unit: '#upload_Unite#' }])
+		});
+		jeedom.cmd.refreshValue([{ cmd_id: '#upload_Id#', display_value: '#upload_Value#', valueDate: '#upload_ValueDate#', collectDate: '#upload_CollectDate#', unit: '#upload_Unite#' }]);
 
 		jeedom.cmd.addUpdateFunction('#ping_Id#', function (_options) {
 			if (is_object(cmd = document.querySelector('.cmd[data-cmd_id="#ping_Id#"]'))) {
-				cmd.querySelector('.content').setAttribute('title', '{{Date de valeur}}: ' + _options.valueDate + '<br>{{Date de collecte}}: ' + _options.collectDate)
+				cmd.querySelector('.content').setAttribute('title', '{{Date de valeur}}: ' + _options.valueDate + '<br>{{Date de collecte}}: ' + _options.collectDate);
 				if ('#timeWidget#' == 1) {
-					jeedom.cmd.displayDuration(_options.valueDate, cmd.querySelector('.timeCmd'), '#time#')
+					jeedom.cmd.displayDuration(_options.valueDate, cmd.querySelector('.timeCmd'), '#time#');
 				}
-				cmd.querySelector('.value').innerHTML = _options.display_value
-				cmd.querySelector('.unit').innerHTML = _options.unit
+				cmd.querySelector('.value').innerHTML = _options.display_value;
+				cmd.querySelector('.unit').innerHTML = _options.unit;
 			}
-		})
-		jeedom.cmd.refreshValue([{ cmd_id: '#ping_Id#', display_value: '#ping_Value#', valueDate: '#ping_ValueDate#', collectDate: '#ping_CollectDate#', unit: '#ping_Unite#' }])
+		});
+		jeedom.cmd.refreshValue([{ cmd_id: '#ping_Id#', display_value: '#ping_Value#', valueDate: '#ping_ValueDate#', collectDate: '#ping_CollectDate#', unit: '#ping_Unite#' }]);
 
 		if (is_object(eqLogic = document.querySelector('.eqLogic[data-eqLogic_uid=#uid#]'))) {
 			if ('#colorWidgetName#' != '') {
-				eqLogic.querySelector('.widget-name > a').style.setProperty('color', '#colorWidgetName#', 'important')
+				eqLogic.querySelector('.widget-name > a').style.setProperty('color', '#colorWidgetName#', 'important');
 			}
 			if ('#bgWidgetName#' != '') {
-				eqLogic.querySelector('.widget-name').style.setProperty('background-color', '#bgWidgetName#', 'important')
+				eqLogic.querySelector('.widget-name').style.setProperty('background-color', '#bgWidgetName#', 'important');
 			}
 			if ('#colorEqLogic#' != '') {
-				elements = eqLogic.querySelectorAll('.cmdName, .value, .unit')
+				elements = eqLogic.querySelectorAll('.cmdName, .value, .unit');
 				elements.forEach(element => {
-					element.style.setProperty('color', '#colorEqLogic#', 'important')
-				})
+					element.style.setProperty('color', '#colorEqLogic#', 'important');
+				});
 			}
 			if ('#bgEqLogic#' != '') {
-				eqLogic.style.setProperty('background-color', '#bgEqLogic#', 'important')
+				eqLogic.style.setProperty('background-color', '#bgEqLogic#', 'important');
 			}
 			if ('#cmdName#' != 1) {
-				elements = eqLogic.querySelectorAll('.title')
+				elements = eqLogic.querySelectorAll('.title');
 				elements.forEach(element => {
-					element.remove()
-				})
+					element.remove();
+				});
 			}
 		}
 	</script>
