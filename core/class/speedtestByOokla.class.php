@@ -285,9 +285,6 @@ class speedtestByOokla extends eqLogic
 	// Permet de modifier l'affichage du widget (également utilisable par les commandes)
 	public function toHtml($_version = 'dashboard')
 	{
-		if ($this->getConfiguration('template') == 'coreWidget') {
-			return parent::toHtml($_version);
-		}
 		$replace = $this->preToHtml($_version);
 		if (!is_array($replace)) {
 			return $replace;

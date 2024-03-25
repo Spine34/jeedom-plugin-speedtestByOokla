@@ -126,6 +126,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 								<div class="col-sm-6">
 									<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked>{{Activer}}</label>
 									<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked>{{Visible}}</label>
+									<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="display" data-l2key="widgetTmpl" checked>{{Template de widget}}</label>
 								</div>
 							</div>
 
@@ -148,12 +149,11 @@ $eqLogics = eqLogic::byType($plugin->getId());
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-4 control-label">{{Templates}}
+								<label class="col-sm-4 control-label">{{Template de widget}}
 									<sup><i class="fas fa-question-circle tooltips" title="{{Permet d'utiliser les templates dédiés au plugin à la place des widgets core (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)}}"></i></sup>
 								</label>
 								<div class="col-sm-6">
 									<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="template">
-										<option value="coreWidget">{{Widgets core}}</option>
 										<option value="speedtestByOoklaLite">{{Template allégé}}</option>
 										<!-- <option value="speedtestByOoklaWithoutGauges">{{Template sans jauges}}</option> -->
 										<!-- <option value="speedtestByOoklaWithGauges">{{Template avec jauges}}</option> -->
