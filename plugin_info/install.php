@@ -47,12 +47,16 @@ function speedtestByOokla_update()
 	$cron->setSchedule('* * * * *');
 	$cron->setTimeout(2);
 	$cron->save();
-	// foreach (eqLogic::byType('speedtestByOokla') as $eqLogic) {
-	// 	// if ($eqLogic->getConfiguration('template') == 'coreWidget') {
-	// 	$eqLogic->setDisplay('widgetTmpl', 0);
-	// 	$eqLogic->save();
-	// 	// }
-	// }
+	foreach (eqLogic::byType('speedtestByOokla') as $eqLogic) {
+		if ($eqLogic->getConfiguration('template') == 'templateWithoutGauges') {
+			$eqLogic->setConfiguration('template', 'speedtestByOoklaWithoutGauges4.3');
+			$eqLogic->save();
+		}
+		// if ($eqLogic->getConfiguration('template') == 'coreWidget') {
+		// 	$eqLogic->setDisplay('widgetTmpl', 0);
+		// 	$eqLogic->save();
+		// }
+	}
 }
 
 // Fonction exécutée automatiquement après la suppression du plugin
