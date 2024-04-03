@@ -53,6 +53,7 @@ function speedtestByOokla_update()
 				$eqLogic->setDisplay('widgetTmpl', 0);
 				$eqLogic->setConfiguration('template', 'speedtestByOoklaLight');
 			} else if ($eqLogic->getConfiguration('template') == 'templateWithoutGauges') {
+				$eqLogic->setDisplay('widgetTmpl', 1);
 				$eqLogic->setConfiguration('template', 'speedtestByOoklaLight');
 			}
 		} else {
