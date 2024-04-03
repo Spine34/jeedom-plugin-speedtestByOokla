@@ -375,7 +375,14 @@ class speedtestByOokla extends eqLogic
 			} else {
 				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
 				$speedtest = json_decode($speedtest, true);
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . print_r($speedtest, true));
+				$speedtestLog = $speedtest;
+				if ($speedtestLog['interface']['internalIp'] != $speedtestLog['interface']['externalIp']) {
+					$speedtestLog['interface']['externalIp'] = 'IPv4';
+				} else {
+					$speedtestLog['interface']['internalIp'] = 'IPv6';
+					$speedtestLog['interface']['externalIp'] = 'IPv6';
+				}
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . json_encode($speedtestLog));
 				$this->checkAndUpdateCmd('download', $speedtest['download']['bandwidth']);
 				$this->checkAndUpdateCmd('upload', $speedtest['upload']['bandwidth']);
 				$this->checkAndUpdateCmd('ping', $speedtest['ping']['latency']);
