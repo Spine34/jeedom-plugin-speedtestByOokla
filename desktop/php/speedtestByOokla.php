@@ -47,6 +47,9 @@ $eqLogics = eqLogic::byType($plugin->getId());
 				echo '<br>';
 				echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
 				echo '<span class="hiddenAsCard displayTableRight hidden">';
+				if ($eqLogic->getConfiguration('autorefresh', '') != '') {
+					echo '<span class="label label-info">' . $eqLogic->getConfiguration('autorefresh') . '</span>';
+				}
 				echo ($eqLogic->getIsVisible() == 1) ? '<i class="fas fa-eye" title="{{Equipement visible}}"></i>' : '<i class="fas fa-eye-slash" title="{{Equipement non visible}}"></i>';
 				echo '</span>';
 				echo '</div>';
@@ -123,6 +126,11 @@ $eqLogics = eqLogic::byType($plugin->getId());
 								<div class="col-sm-6">
 									<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked>{{Activer}}</label>
 									<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked>{{Visible}}</label>
+									<?php
+									if (version_compare(jeedom::version(), '4.4', '>=')) {
+										echo '<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="display" data-l2key="widgetTmpl" checked>{{Template de widget}}</label>';
+									}
+									?>
 								</div>
 							</div>
 
@@ -145,14 +153,21 @@ $eqLogics = eqLogic::byType($plugin->getId());
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-4 control-label">{{Templates}}
+								<label class="col-sm-4 control-label">{{Template de widget}}
 									<sup><i class="fas fa-question-circle tooltips" title="{{Permet d'utiliser les templates dédiés au plugin à la place des widgets core (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)}}"></i></sup>
 								</label>
 								<div class="col-sm-6">
 									<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="template">
-										<option value="coreWidget">{{Widgets core}}</option>
-										<option value="templateWithoutGauges">{{Template sans jauges}}</option>
-										<!-- <option value="templateWithoutGauges">{{Template avec jauges}}</option> -->
+										<?php
+										if (version_compare(jeedom::version(), '4.4', '>=')) {
+											echo '<option value="speedtestByOoklaLight">{{Template light}}</option>';
+											// echo '<option value="speedtestByOoklaWithoutGauges">{{Template sans jauges}}</option>';
+											// echo '<option value="speedtestByOoklaWithGauges">{{Template avec jauges}}</option>';
+										} else {
+											echo '<option value="coreWidget">{{Widgets core}}</option>';
+											echo '<option value="speedtestByOoklaWithoutGauges4.3">{{Template sans jauges}}</option>';
+										}
+										?>
 									</select>
 								</div>
 							</div>
@@ -198,14 +213,14 @@ $eqLogics = eqLogic::byType($plugin->getId());
 			<!-- Onglet des commandes de l'équipement -->
 			<div role="tabpanel" class="tab-pane" id="commandtab">
 				<!-- <a class="btn btn-default btn-sm pull-right cmdAction" data-action="add" style="margin-top:5px;"><i class="fas fa-plus-circle"></i> {{Ajouter une commande}}</a> -->
-				<br>
+				<!-- <br><br> -->
 				<div class="table-responsive">
 					<table id="table_cmd" class="table table-bordered table-condensed">
 						<thead>
 							<tr>
 								<th class="hidden-xs" style="min-width:50px;width:70px;">ID</th>
 								<th style="min-width:200px;width:350px;">{{Nom}}</th>
-								<!-- <th>{{Type}}</th> -->
+								<th>{{Type}}</th>
 								<th style="min-width:260px;">{{Options}}</th>
 								<th>{{Etat}}</th>
 								<th style="min-width:80px;width:200px;">{{Actions}}</th>

@@ -22,8 +22,10 @@ class speedtestByOokla extends eqLogic
 {
 	/*     * *************************Attributs****************************** */
 
-	// Permet de définir les possibilités de personnalisation du widget (en cas d'utilisation de la fonction 'toHtml' par exemple)
-	// Tableau multidimensionnel - exemple: array('custom' => true, 'custom::layout' => false)
+	/*
+	* Permet de définir les possibilités de personnalisation du widget (en cas d'utilisation de la fonction 'toHtml' par exemple)
+	* Tableau multidimensionnel - exemple: array('custom' => true, 'custom::layout' => false)
+	*/
 
 	// public static $_widgetPossibility = array('custom' => true);
 	public static $_widgetPossibility = array(
@@ -74,12 +76,11 @@ class speedtestByOokla extends eqLogic
 		)
 	);
 
-
 	/*
-  * Permet de crypter/décrypter automatiquement des champs de configuration du plugin
-  * Exemple : "param1" & "param2" seront cryptés mais pas "param3"
-  public static $_encryptConfigKey = array('param1', 'param2');
-  */
+	* Permet de crypter/décrypter automatiquement des champs de configuration du plugin
+	* Exemple : "param1" & "param2" seront cryptés mais pas "param3"
+	public static $_encryptConfigKey = array('param1', 'param2');
+	*/
 
 	/*     * ***********************Methode static*************************** */
 
@@ -124,39 +125,39 @@ class speedtestByOokla extends eqLogic
 	}
 
 	/*
-  * Fonction exécutée automatiquement toutes les minutes par Jeedom
-  public static function cron() {}
-  */
+	* Fonction exécutée automatiquement toutes les minutes par Jeedom
+	public static function cron() {}
+	*/
 
 	/*
-  * Fonction exécutée automatiquement toutes les 5 minutes par Jeedom
-  public static function cron5() {}
-  */
+	* Fonction exécutée automatiquement toutes les 5 minutes par Jeedom
+	public static function cron5() {}
+	*/
 
 	/*
-  * Fonction exécutée automatiquement toutes les 10 minutes par Jeedom
-  public static function cron10() {}
-  */
+	* Fonction exécutée automatiquement toutes les 10 minutes par Jeedom
+	public static function cron10() {}
+	*/
 
 	/*
-  * Fonction exécutée automatiquement toutes les 15 minutes par Jeedom
-  public static function cron15() {}
-  */
+	* Fonction exécutée automatiquement toutes les 15 minutes par Jeedom
+	public static function cron15() {}
+	*/
 
 	/*
-  * Fonction exécutée automatiquement toutes les 30 minutes par Jeedom
-  public static function cron30() {}
-  */
+	* Fonction exécutée automatiquement toutes les 30 minutes par Jeedom
+	public static function cron30() {}
+	*/
 
 	/*
-  * Fonction exécutée automatiquement toutes les heures par Jeedom
-  public static function cronHourly() {}
-  */
+	* Fonction exécutée automatiquement toutes les heures par Jeedom
+	public static function cronHourly() {}
+	*/
 
 	/*
-  * Fonction exécutée automatiquement tous les jours par Jeedom
-  public static function cronDaily() {}
-  */
+	* Fonction exécutée automatiquement tous les jours par Jeedom
+	public static function cronDaily() {}
+	*/
 
 	/*     * *********************Méthodes d'instance************************* */
 
@@ -165,7 +166,12 @@ class speedtestByOokla extends eqLogic
 	{
 		$this->setIsEnable(1);
 		$this->setIsVisible(1);
-		$this->setConfiguration('template', 'coreWidget');
+		if (version_compare(jeedom::version(), '4.4', '>=')) {
+			$this->setDisplay('widgetTmpl', 0);
+			$this->setConfiguration('template', 'speedtestByOoklaLight');
+		} else {
+			$this->setConfiguration('template', 'coreWidget');
+		}
 		$this->setDisplay('advanceWidgetParametercolorWidgetNamedashboard-default', 1);
 		$this->setDisplay('advanceWidgetParametercolorWidgetNamemobile-default', 1);
 		$this->setDisplay('advanceWidgetParameterbgWidgetNamedashboard-default', 0);
@@ -208,34 +214,50 @@ class speedtestByOokla extends eqLogic
 	public function postSave()
 	{
 		$order = 0;
-		if (!is_file(dirname(__FILE__) . '/../config/cmds/commands.json')) {
-			log::add(__CLASS__, 'error', $this->getHumanName() . ' : Command creation file not found');
-		}
 		$commands = json_decode(file_get_contents(dirname(__FILE__) . '/../config/cmds/commands.json'), true);
-		// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $commands : ' . print_r($commands, true));
+		// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $commands : ' . json_encode($commands));
 		foreach ($commands as $command) {
-			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $command : ' . print_r($command, true));
+			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $command : ' . json_encode($command));
 			$cmd = $this->getCmd(null, $command['logicalId']);
 			if (!is_object($cmd)) {
 				log::add(__CLASS__, 'info', $this->getHumanName() . ' : Command [' . $command['name'] . '] created');
 				$cmd = (new speedtestByOoklaCmd);
-				$cmd->setEqLogic_id($this->getId());
-				$cmd->setName($command['name']);
 				$cmd->setLogicalId($command['logicalId']);
+				// if (isset($command['generic_type'])) {
+				// 	$cmd->setGeneric_type($command['generic_type']);
+				// }
+				$cmd->setName($command['name']);
+				$cmd->setOrder($order++);
 				$cmd->setType($command['type']);
 				$cmd->setSubType($command['subType']);
-				$cmd->setOrder($order++);
-				if (isset($command['unite'])) {
-					$cmd->setUnite($command['unite']);
-				}
+				$cmd->setEqLogic_id($this->getId());
 				if (isset($command['isHistorized'])) {
 					$cmd->setIsHistorized($command['isHistorized']);
+				}
+				if (isset($command['unite'])) {
+					$cmd->setUnite($command['unite']);
 				}
 				if (isset($command['configuration'])) {
 					foreach ($command['configuration'] as $key => $value) {
 						$cmd->setConfiguration($key, $value);
 					}
 				}
+				// if (isset($command['template'])) {
+				// 	foreach ($command['template'] as $key => $value) {
+				// 		$cmd->setTemplate($key, $value);
+				// 	}
+				// }
+				// if (isset($command['display'])) {
+				// 	foreach ($command['display'] as $key => $value) {
+				// 		$cmd->setDisplay($key, $value);
+				// 	}
+				// }
+				// if (isset($command['value'])) {
+				// 	$cmd->setValue($this->getCmd(null, $command['value'])->getId());
+				// }
+				// if (isset($command['isVisible'])) {
+				// 	$cmd->setIsVisible($command['isVisible']);
+				// }
 				$cmd->save();
 			}
 		}
@@ -252,15 +274,15 @@ class speedtestByOokla extends eqLogic
 	}
 
 	/*
-  * Permet de crypter/décrypter automatiquement des champs de configuration des équipements
-  * Exemple avec le champ "Mot de passe" (password)
-  public function decrypt() {
-    $this->setConfiguration('password', utils::decrypt($this->getConfiguration('password')));
-  }
-  public function encrypt() {
-    $this->setConfiguration('password', utils::encrypt($this->getConfiguration('password')));
-  }
-  */
+	* Permet de crypter/décrypter automatiquement des champs de configuration des équipements
+	* Exemple avec le champ "Mot de passe" (password)
+	public function decrypt() {
+		$this->setConfiguration('password', utils::decrypt($this->getConfiguration('password')));
+	}
+	public function encrypt() {
+		$this->setConfiguration('password', utils::encrypt($this->getConfiguration('password')));
+	}
+	*/
 
 	// Permet de modifier l'affichage du widget (également utilisable par les commandes)
 	public function toHtml($_version = 'dashboard')
@@ -273,6 +295,11 @@ class speedtestByOokla extends eqLogic
 			return $replace;
 		}
 		$version = jeedom::versionAlias($_version);
+		if ($version == 'dashboard') {
+			$template = $this->getConfiguration('template');
+		} else {
+			$template = 'speedtestByOokla';
+		}
 		foreach (($this->getCmd('info')) as $cmd) {
 			$logical = $cmd->getLogicalId();
 			$replace['#' . $logical . '_Id#'] = $cmd->getId();
@@ -296,29 +323,29 @@ class speedtestByOokla extends eqLogic
 			$replace['#cmdName#'] = $this->getDisplay('advanceWidgetParametercmdNamemobile-default');
 			$replace['#timeWidget#'] = $this->getDisplay('advanceWidgetParametertimeWidgetmobile-default');
 		}
-		$html = template_replace($replace, getTemplate('core', $version, 'speedtestByOoklaWithoutGauges', __CLASS__));
-		$html = translate::exec($html, 'plugins/speedtestByOokla/core/template/' . $version . '/speedtestByOoklaWithoutGauges.html');
+		// return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, $template, __CLASS__)));
+		$html = template_replace($replace, getTemplate('core', $version, $template, __CLASS__));
+		$html = translate::exec($html, 'plugins/speedtestByOokla/core/template/' . $version . '/' . $template . '.html');
 		$html = $this->postToHtml($_version, $html);
 		return $html;
-		// return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'speedtestByOoklaWithoutGauges', __CLASS__)));
 	}
 
 	/*
-  * Permet de déclencher une action avant modification d'une variable de configuration du plugin
-  * Exemple avec la variable "param3"
-  public static function preConfig_param3( $value ) {
-    // do some checks or modify on $value
-    return $value;
-  }
-  */
+	* Permet de déclencher une action avant modification d'une variable de configuration du plugin
+	* Exemple avec la variable "param3"
+	public static function preConfig_param3( $value ) {
+		// do some checks or modify on $value
+		return $value;
+	}
+	*/
 
 	/*
-  * Permet de déclencher une action après modification d'une variable de configuration du plugin
-  * Exemple avec la variable "param3"
-  public static function postConfig_param3($value) {
-    // no return value
-  }
-  */
+	* Permet de déclencher une action après modification d'une variable de configuration du plugin
+	* Exemple avec la variable "param3"
+	public static function postConfig_param3($value) {
+		// no return value
+	}
+	*/
 
 	public function refreshData()
 	{
@@ -332,9 +359,9 @@ class speedtestByOokla extends eqLogic
 			$speedtest = shell_exec($cmd);
 			if ($speedtest == false || $speedtest == null) {
 				$speedtest = shell_exec($cmd . ' 2>&1');
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
-				$speedtests = explode("\n", rtrim($speedtest));
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtests : ' . print_r($speedtests, true));
+				// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
+				$speedtests = explode("\n", trim($speedtest));
+				// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtests : ' . json_encode($speedtests));
 				foreach ($speedtests as $speedtest) {
 					if ($this->getConfiguration('disableError') != 1) {
 						log::add(__CLASS__, 'error', $this->getHumanName() . ' : Error shell_exec() : ' . $speedtest);
@@ -343,9 +370,16 @@ class speedtestByOokla extends eqLogic
 					}
 				}
 			} else {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
+				// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
 				$speedtest = json_decode($speedtest, true);
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . print_r($speedtest, true));
+				$speedtestLog = $speedtest;
+				if ($speedtestLog['interface']['internalIp'] != $speedtestLog['interface']['externalIp']) {
+					$speedtestLog['interface']['externalIp'] = 'IPv4';
+				} else {
+					$speedtestLog['interface']['internalIp'] = 'IPv6';
+					$speedtestLog['interface']['externalIp'] = 'IPv6';
+				}
+				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . json_encode($speedtestLog));
 				$this->checkAndUpdateCmd('download', $speedtest['download']['bandwidth']);
 				$this->checkAndUpdateCmd('upload', $speedtest['upload']['bandwidth']);
 				$this->checkAndUpdateCmd('ping', $speedtest['ping']['latency']);
@@ -356,10 +390,10 @@ class speedtestByOokla extends eqLogic
 				$this->checkAndUpdateCmd('timestamp', date('Y-m-d H:i:s', strtotime($speedtest['timestamp'])));
 				log::add(__CLASS__, 'info', $this->getHumanName() . ' : Updated commands');
 				$serverList = shell_exec('sudo /usr/bin/speedtest --servers');
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverList : ' . $serverList);
+				// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverList : ' . $serverList);
 				$serverList = str_replace('Closest servers:' . "\n" . "\n", '', $serverList);
-				$serverLists = explode("\n", rtrim($serverList));
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverLists : ' . print_r($serverLists, true));
+				$serverLists = explode("\n", trim($serverList));
+				// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverLists : ' . json_encode($serverLists));
 				foreach ($serverLists as $server) {
 					log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $server : ' . $server);
 				}
@@ -377,8 +411,8 @@ class speedtestByOoklaCmd extends cmd
 	/*     * *************************Attributs****************************** */
 
 	/*
-  public static $_widgetPossibility = array();
-  */
+	public static $_widgetPossibility = array();
+	*/
 
 	/*     * ***********************Methode static*************************** */
 
@@ -386,11 +420,11 @@ class speedtestByOoklaCmd extends cmd
 	/*     * *********************Methode d'instance************************* */
 
 	/*
-  * Permet d'empêcher la suppression des commandes même si elles ne sont pas dans la nouvelle configuration de l'équipement envoyé en JS
-  public function dontRemoveCmd() {
-    return true;
-  }
-  */
+	* Permet d'empêcher la suppression des commandes même si elles ne sont pas dans la nouvelle configuration de l'équipement envoyé en JS
+	public function dontRemoveCmd() {
+		return true;
+	}
+	*/
 
 	// Exécution d'une commande
 	public function execute($_options = array())

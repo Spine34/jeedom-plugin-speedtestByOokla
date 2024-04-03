@@ -55,12 +55,13 @@
 		"Rechercher": "Search",
 		"Sauvegarder": "Save",
 		"Supprimer": "Delete",
-		"Templates": "Templates",
+		"Template de widget": "Widget Template",
 		"Type": "Type",
 		"Visible": "Visible",
-		"Widgets core": "Core widgets",
+		"Template light": "Light template",
 		"Template sans jauges": "Template without gauges",
-		"Template avec jauges": "Template with gauges"
+		"Template avec jauges": "Template with gauges",
+		"Créer un post Community": "Create a community post"
 	},
 	"plugins\/speedtestByOokla\/core\/template\/dashboard\/speedtestByOoklaWithoutGauges.html": {
 		"Date de valeur": "Value date",

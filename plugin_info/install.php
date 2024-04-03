@@ -48,26 +48,19 @@ function speedtestByOokla_update()
 	$cron->setTimeout(2);
 	$cron->save();
 	foreach (eqLogic::byType('speedtestByOokla') as $eqLogic) {
-		if ($eqLogic->getConfiguration('template') == '') {
-			$eqLogic->setConfiguration('template', 'coreWidget');
-			$eqLogic->setDisplay('advanceWidgetParametercolorWidgetNamedashboard-default', 1);
-			$eqLogic->setDisplay('advanceWidgetParametercolorWidgetNamemobile-default', 1);
-			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamedashboard-default', 0);
-			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamedashboard', '#26273b');
-			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamemobile-default', 0);
-			$eqLogic->setDisplay('advanceWidgetParameterbgWidgetNamemobile', '#26273b');
-			$eqLogic->setDisplay('advanceWidgetParametercolorEqLogicdashboard-default', 1);
-			$eqLogic->setDisplay('advanceWidgetParametercolorEqLogicmobile-default', 1);
-			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicdashboard-default', 0);
-			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicdashboard', '#141526');
-			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicmobile-default', 0);
-			$eqLogic->setDisplay('advanceWidgetParameterbgEqLogicmobile', '#141526');
-			$eqLogic->setDisplay('advanceWidgetParametercmdNamedashboard-default', 1);
-			$eqLogic->setDisplay('advanceWidgetParametercmdNamemobile-default', 1);
-			$eqLogic->setDisplay('advanceWidgetParametertimeWidgetdashboard-default', 1);
-			$eqLogic->setDisplay('advanceWidgetParametertimeWidgetmobile-default', 1);
-			$eqLogic->save();
+		if (version_compare(jeedom::version(), '4.4', '>=')) {
+			if ($eqLogic->getConfiguration('template') == 'coreWidget') {
+				$eqLogic->setDisplay('widgetTmpl', 0);
+				$eqLogic->setConfiguration('template', 'speedtestByOoklaLight');
+			} else if ($eqLogic->getConfiguration('template') == 'templateWithoutGauges') {
+				$eqLogic->setConfiguration('template', 'speedtestByOoklaLight');
+			}
+		} else {
+			if ($eqLogic->getConfiguration('template') == 'templateWithoutGauges') {
+				$eqLogic->setConfiguration('template', 'speedtestByOoklaWithoutGauges4.3');
+			}
 		}
+		$eqLogic->save();
 	}
 }
 
