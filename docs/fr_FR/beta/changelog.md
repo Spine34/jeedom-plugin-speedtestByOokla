@@ -15,10 +15,6 @@
 
 - Suppression du bouton pour générer automatiquement un post sur Community sur la page principale du plugin (intégré dans le core sur la page de configuration des plugins)
 
-## 15/01/2024
-
-- Augmentation de la version minimale du Core supportée par le plugin (>= 4.4)
-
 ## 19/08/2023
 
 - Ajout d'un bouton pour générer automatiquement un post sur Community sur la page principale du plugin (>= 4.4)
