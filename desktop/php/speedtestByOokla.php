@@ -126,7 +126,11 @@ $eqLogics = eqLogic::byType($plugin->getId());
 								<div class="col-sm-6">
 									<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked>{{Activer}}</label>
 									<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked>{{Visible}}</label>
-									<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="display" data-l2key="widgetTmpl" checked>{{Template de widget}}</label>
+									<?php
+									if (version_compare(jeedom::version(), '4.4', '>=')) {
+										echo '<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="display" data-l2key="widgetTmpl" checked>{{Template de widget}}</label>';
+									}
+									?>
 								</div>
 							</div>
 
@@ -154,9 +158,16 @@ $eqLogics = eqLogic::byType($plugin->getId());
 								</label>
 								<div class="col-sm-6">
 									<select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="template">
-										<option value="speedtestByOoklaLight">{{Template light}}</option>
-										<!-- <option value="speedtestByOoklaWithoutGauges">{{Template sans jauges}}</option> -->
-										<!-- <option value="speedtestByOoklaWithGauges">{{Template avec jauges}}</option> -->
+										<?php
+										if (version_compare(jeedom::version(), '4.4', '>=')) {
+											echo '<option value="speedtestByOoklaLight">{{Template light}}</option>';
+											// echo '<option value="speedtestByOoklaWithoutGauges">{{Template sans jauges}}</option>';
+											// echo '<option value="speedtestByOoklaWithGauges">{{Template avec jauges}}</option>';
+										} else {
+											echo '<option value="coreWidget">{{Widgets core}}</option>';
+											echo '<option value="speedtestByOoklaWithoutGauges4.3">{{Template sans jauges}}</option>';
+										}
+										?>
 									</select>
 								</div>
 							</div>
