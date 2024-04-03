@@ -11,6 +11,12 @@
 - Correction du template sans jauges dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget)
 - Ajout d'un template allégé dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget) -->
 
+## 03/04/2024
+
+- Ajout d'une checkbox Template de widget (>= 4.4)
+- Ajout d'un template Light dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget) (>= 4.4)
+- Migration de la configuration des équipements selon la version de Jeedom
+
 ## 21/01/2024
 
 - Suppression du bouton pour générer automatiquement un post sur Community sur la page principale du plugin (intégré dans le core sur la page de configuration des plugins)
