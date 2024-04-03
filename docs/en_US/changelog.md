@@ -11,7 +11,7 @@
 - Migration of equipment configuration according to the version of Jeedom
 - Deletion of IP addresses in the log to facilitate sharing
 - Log cleaning
-- Deletion of the button to automatically generate a Post on Community on the main plugin page (integrated into the Core on the plugin configuration page)
+- Deletion of the button to automatically generate a Post on Community on the main plugin page (integrated into the Core on the plugin configuration page) (>= 4.4)
 - Adding a button to automatically generate a community post on the main plugin page (> = 4.4)
 
 ## 02/02/2023

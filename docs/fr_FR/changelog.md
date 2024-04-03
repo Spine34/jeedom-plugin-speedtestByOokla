@@ -11,7 +11,7 @@
 - Migration de la configuration des équipements selon la version de Jeedom
 - Suppression des adresses IP dans le log pour faciliter le partage
 - Nettoyage du log
-- Suppression du bouton pour générer automatiquement un post sur Community sur la page principale du plugin (intégré dans le core sur la page de configuration des plugins)
+- Suppression du bouton pour générer automatiquement un post sur Community sur la page principale du plugin (intégré dans le core sur la page de configuration des plugins) (>= 4.4)
 - Ajout d'un bouton pour générer automatiquement un post sur Community sur la page principale du plugin (>= 4.4)
 
 ## 02/02/2023

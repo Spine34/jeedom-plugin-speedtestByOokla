@@ -14,7 +14,7 @@
 
 ## 21/01/2024
 
-- Deletion of the button to automatically generate a Post on Community on the main plugin page (integrated into the Core on the plugin configuration page)
+- Deletion of the button to automatically generate a Post on Community on the main plugin page (integrated into the Core on the plugin configuration page) (>= 4.4)
 
 ## 19/08/2023
 
