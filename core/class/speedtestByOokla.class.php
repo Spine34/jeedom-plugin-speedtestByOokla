@@ -166,7 +166,12 @@ class speedtestByOokla extends eqLogic
 	{
 		$this->setIsEnable(1);
 		$this->setIsVisible(1);
-		$this->setConfiguration('template', 'coreWidget');
+		if (version_compare(jeedom::version(), '4.4', '>=')) {
+			$this->setDisplay('widgetTmpl', 0);
+			$this->setConfiguration('template', 'speedtestByOoklaLight');
+		} else {
+			$this->setConfiguration('template', 'coreWidget');
+		}
 		$this->setDisplay('advanceWidgetParametercolorWidgetNamedashboard-default', 1);
 		$this->setDisplay('advanceWidgetParametercolorWidgetNamemobile-default', 1);
 		$this->setDisplay('advanceWidgetParameterbgWidgetNamedashboard-default', 0);

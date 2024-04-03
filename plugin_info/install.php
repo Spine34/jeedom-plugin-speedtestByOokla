@@ -48,14 +48,19 @@ function speedtestByOokla_update()
 	$cron->setTimeout(2);
 	$cron->save();
 	foreach (eqLogic::byType('speedtestByOokla') as $eqLogic) {
-		if ($eqLogic->getConfiguration('template') == 'templateWithoutGauges') {
-			$eqLogic->setConfiguration('template', 'speedtestByOoklaWithoutGauges4.3');
-			$eqLogic->save();
+		if (version_compare(jeedom::version(), '4.4', '>=')) {
+			if ($eqLogic->getConfiguration('template') == 'coreWidget') {
+				$eqLogic->setDisplay('widgetTmpl', 0);
+				$eqLogic->setConfiguration('template', 'speedtestByOoklaLight');
+			} else if ($eqLogic->getConfiguration('template') == 'templateWithoutGauges') {
+				$eqLogic->setConfiguration('template', 'speedtestByOoklaLight');
+			}
+		} else {
+			if ($eqLogic->getConfiguration('template') == 'templateWithoutGauges') {
+				$eqLogic->setConfiguration('template', 'speedtestByOoklaWithoutGauges4.3');
+			}
 		}
-		// if ($eqLogic->getConfiguration('template') == 'coreWidget') {
-		// 	$eqLogic->setDisplay('widgetTmpl', 0);
-		// 	$eqLogic->save();
-		// }
+		$eqLogic->save();
 	}
 }
 
