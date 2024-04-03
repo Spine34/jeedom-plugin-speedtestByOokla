@@ -4,6 +4,14 @@
 >
 > If there is no information on the update, it is because it only concerns the update of documentation, translation or text.
 
+## 03/04/2024
+
+- Adding a Widget Template Checkbox (>= 4.4)
+- Adding a light template dedicated to the plugin dashboard version (parameters in advanced equipment configuration => display tab => widget section) (>= 4.4)
+- Migration of equipment configuration according to the version of Jeedom
+- Deletion of IP addresses in the log to facilitate sharing
+- Log cleaning
+
 ## 21/01/2024
 
 - Deletion of the button to automatically generate a Post on Community on the main plugin page (integrated into the Core on the plugin configuration page)
@@ -18,7 +26,7 @@
 
 ## 03/12/2022
 
-- Adding a template dedicated to the mobile version plugin (parameters in Advanced equipment configuration => View tab => Widget section)
+- Adding a template dedicated to the plugin mobile version (parameters in Advanced equipment configuration => View tab => Widget section)
 
 ## 12/11/2022
 

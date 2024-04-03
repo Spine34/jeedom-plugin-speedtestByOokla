@@ -214,13 +214,10 @@ class speedtestByOokla extends eqLogic
 	public function postSave()
 	{
 		$order = 0;
-		if (!is_file(dirname(__FILE__) . '/../config/cmds/commands.json')) {
-			log::add(__CLASS__, 'error', $this->getHumanName() . ' : Command creation file not found');
-		}
 		$commands = json_decode(file_get_contents(dirname(__FILE__) . '/../config/cmds/commands.json'), true);
-		// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $commands : ' . print_r($commands, true));
+		// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $commands : ' . json_encode($commands));
 		foreach ($commands as $command) {
-			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $command : ' . print_r($command, true));
+			// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $command : ' . json_encode($command));
 			$cmd = $this->getCmd(null, $command['logicalId']);
 			if (!is_object($cmd)) {
 				log::add(__CLASS__, 'info', $this->getHumanName() . ' : Command [' . $command['name'] . '] created');
@@ -362,9 +359,9 @@ class speedtestByOokla extends eqLogic
 			$speedtest = shell_exec($cmd);
 			if ($speedtest == false || $speedtest == null) {
 				$speedtest = shell_exec($cmd . ' 2>&1');
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
-				$speedtests = explode("\n", rtrim($speedtest));
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtests : ' . print_r($speedtests, true));
+				// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
+				$speedtests = explode("\n", trim($speedtest));
+				// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtests : ' . json_encode($speedtests));
 				foreach ($speedtests as $speedtest) {
 					if ($this->getConfiguration('disableError') != 1) {
 						log::add(__CLASS__, 'error', $this->getHumanName() . ' : Error shell_exec() : ' . $speedtest);
@@ -373,7 +370,7 @@ class speedtestByOokla extends eqLogic
 					}
 				}
 			} else {
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
+				// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $speedtest : ' . $speedtest);
 				$speedtest = json_decode($speedtest, true);
 				$speedtestLog = $speedtest;
 				if ($speedtestLog['interface']['internalIp'] != $speedtestLog['interface']['externalIp']) {
@@ -393,10 +390,10 @@ class speedtestByOokla extends eqLogic
 				$this->checkAndUpdateCmd('timestamp', date('Y-m-d H:i:s', strtotime($speedtest['timestamp'])));
 				log::add(__CLASS__, 'info', $this->getHumanName() . ' : Updated commands');
 				$serverList = shell_exec('sudo /usr/bin/speedtest --servers');
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverList : ' . $serverList);
+				// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverList : ' . $serverList);
 				$serverList = str_replace('Closest servers:' . "\n" . "\n", '', $serverList);
-				$serverLists = explode("\n", rtrim($serverList));
-				log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverLists : ' . print_r($serverLists, true));
+				$serverLists = explode("\n", trim($serverList));
+				// log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $serverLists : ' . json_encode($serverLists));
 				foreach ($serverLists as $server) {
 					log::add(__CLASS__, 'debug', $this->getHumanName() . ' : $server : ' . $server);
 				}

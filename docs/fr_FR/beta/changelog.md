@@ -7,9 +7,10 @@
 ## 03/04/2024
 
 - Ajout d'une checkbox Template de widget (>= 4.4)
-- Ajout d'un template Light dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget) (>= 4.4)
+- Ajout d'un template light dédié au plugin version dashboard (paramètres dans Configuration avancée de l'équipement => onglet Affichage => section Widget) (>= 4.4)
 - Migration de la configuration des équipements selon la version de Jeedom
 - Suppression des adresses IP dans le log pour faciliter le partage
+- Nettoyage du log
 
 ## 21/01/2024
 

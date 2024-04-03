@@ -10,7 +10,7 @@
 
 ## 04/12/2022
 
-- Adding a template dedicated to the mobile version plugin (parameters in Advanced equipment configuration => View tab => Widget section)
+- Adding a template dedicated to the plugin mobile version (parameters in Advanced equipment configuration => View tab => Widget section)
 
 ## 29/11/2022
 
