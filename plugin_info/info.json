@@ -15,10 +15,10 @@
 	"hasDependency": true,
 	"hasOwnDeamon": false,
 	"maxDependancyInstallTime": 10,
-	"changelog_beta": "https:\/\/spine34.github.io\/jeedom-plugin-speedtestByOokla\/#language#\/changelog_beta",
-	"changelog": "https:\/\/spine34.github.io\/jeedom-plugin-speedtestByOokla\/#language#\/changelog",
-	"documentation_beta": "https:\/\/spine34.github.io\/jeedom-plugin-speedtestByOokla\/#language#",
-	"documentation": "https:\/\/spine34.github.io\/jeedom-plugin-speedtestByOokla\/#language#",
+	"changelog_beta": "https:\/\/spine34.github.io\/jeedom-documentations\/#language#\/speedtestByOokla\/beta\/changelog",
+	"changelog": "https:\/\/spine34.github.io\/jeedom-documentations\/#language#\/speedtestByOokla\/stable\/changelog",
+	"documentation_beta": "https:\/\/spine34.github.io\/jeedom-documentations\/#language#\/speedtestByOokla\/index",
+	"documentation": "https:\/\/spine34.github.io\/jeedom-documentations\/#language#\/speedtestByOokla\/index",
 	"language": [
 		"fr_FR"
 	],
