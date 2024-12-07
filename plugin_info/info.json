@@ -1,0 +1,34 @@
+{
+	"id": "speedtestByOokla",
+	"name": "Speedtest by Ookla",
+	"description": {
+		"fr_FR": "Ce plugin permet de tester la bande passante internet à l'aide de https://www.speedtest.net"
+	},
+	"licence": "AGPL",
+	"author": "Spine",
+	"require": "4.4",
+	"os": {
+		"min": 11,
+		"max": 12.99
+	},
+	"category": "monitoring",
+	"hasDependency": true,
+	"hasOwnDeamon": false,
+	"maxDependancyInstallTime": 10,
+	"changelog_beta": "https:\/\/spine34.github.io\/jeedom-plugin-speedtestByOokla\/#language#\/changelog_beta",
+	"changelog": "https:\/\/spine34.github.io\/jeedom-plugin-speedtestByOokla\/#language#\/changelog",
+	"documentation_beta": "https:\/\/spine34.github.io\/jeedom-plugin-speedtestByOokla\/#language#",
+	"documentation": "https:\/\/spine34.github.io\/jeedom-plugin-speedtestByOokla\/#language#",
+	"language": [
+		"fr_FR"
+	],
+	"compatibility": [
+		"smart",
+		"luna",
+		"atlas",
+		"rpi",
+		"docker",
+		"diy",
+		"mobile"
+	]
+}
